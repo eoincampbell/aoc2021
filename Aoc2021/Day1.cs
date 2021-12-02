@@ -2,9 +2,12 @@
 {
     internal class Day1 : Puzzle
     {
-        public Day1() : base("Inputs/Day1.txt") { }
+        public Day1() : base("Inputs/Day1.txt") 
+        {
+            arr = PuzzleInput.Select(int.Parse).ToArray();
+        }
 
-        private int[] arr => PuzzleInput.Select(int.Parse).ToArray();
+        private int[] arr;
 
         private object CompareDepths(int lookAhead)
         {
@@ -16,7 +19,8 @@
             return count;
         }
 
-        protected override object RunPart1() => CompareDepths(1);
-        protected override object RunPart2() => CompareDepths(3);
+        protected override string Title => "################ Day 01 ####################";
+        protected override object RunPart1() => CompareDepths(1);   //1564
+        protected override object RunPart2() => CompareDepths(3);   //1611
     }
 }

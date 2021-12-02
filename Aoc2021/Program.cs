@@ -2,5 +2,5 @@
 
 using Aoc2021;
 
-//(new Day1()).Run();
+(new Day1()).Run();
 (new Day2()).Run();

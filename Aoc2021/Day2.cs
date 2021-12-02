@@ -3,12 +3,14 @@ namespace Aoc2021
 {
     internal class Day2 : Puzzle
     {
-        public Day2() : base("Inputs/Day2.txt") { }
+        public Day2() : base("Inputs/Day2.txt") {
+            input = PuzzleInput
+                .Select(x => x.Split(" "))
+                .Select(y => (y[0], int.Parse(y[1])))
+                .ToList();
+        }
 
-        private List<(string dir, int units)> input => PuzzleInput
-            .Select(x => x.Split(" "))
-            .Select(y => (y[0], int.Parse(y[1])))
-            .ToList();
+        private List<(string dir, int units)> input;
 
         private object Travel(bool part1 = true)
         {
@@ -25,7 +27,8 @@ namespace Aoc2021
             return part1 ? (h * a) : (h * d);
         }
 
-        protected override object RunPart1() => Travel(); //1383564
-        protected override object RunPart2() => Travel(false); //1488311643
+        protected override string Title => "################ Day 02 ####################";
+        protected override object RunPart1() => Travel();       //1383564
+        protected override object RunPart2() => Travel(false);  //1488311643
     }
 }
