@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Aoc2021
+namespace Aoc2021.Puzzles
 {
     internal abstract class Puzzle
     {
@@ -10,22 +10,24 @@ namespace Aoc2021
 
         public Puzzle(string filePath) => PuzzleInput = File.ReadLines(filePath);
 
-        public void Run()
+        public string Run()
         {
-            Title.Print();
+            var msg = Title + Environment.NewLine;
 
             var sw = new Stopwatch();
 
             sw.Start();
             var p1 = RunPart1();
             sw.Stop();
-            Console.WriteLine($"   Part 1 | Time: {sw.ElapsedMilliseconds} ms | Result: {p1}");
+            msg += ($"   Part 1 | Time: {sw.ElapsedMilliseconds} ms | Result: {p1}{Environment.NewLine}");
 
             sw.Reset();
             sw.Start();
             var p2 = RunPart2();
             sw.Stop();
-            Console.WriteLine($"   Part 2 | Time: {sw.ElapsedMilliseconds} ms | Result: {p2}");
+            msg += $"   Part 2 | Time: {sw.ElapsedMilliseconds} ms | Result: {p2}";
+
+            return msg;
         }
 
         protected abstract object RunPart1();
