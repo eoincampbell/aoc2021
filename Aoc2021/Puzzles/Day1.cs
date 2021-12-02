@@ -2,7 +2,8 @@
 {
     internal class Day1 : Puzzle
     {
-        public Day1() : base("Inputs/Day1.txt") 
+        public Day1() : 
+            base("Inputs/Day1.txt") 
         {
             arr = PuzzleInput.Select(int.Parse).ToArray();
         }

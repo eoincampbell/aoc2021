@@ -3,14 +3,18 @@ namespace Aoc2021.Puzzles
 {
     internal class Day2 : Puzzle
     {
-        public Day2() : base("Inputs/Day2.txt") {
+        private record Instruction (string Direction, int Units);
+
+        public Day2() : 
+            base("Inputs/Day2.txt")
+        {
             input = PuzzleInput
                 .Select(x => x.Split(" "))
-                .Select(y => (y[0], int.Parse(y[1])))
+                .Select(y => new Instruction(y[0], int.Parse(y[1])))
                 .ToList();
         }
 
-        private List<(string dir, int units)> input;
+        private readonly List<Instruction> input;
 
         private object Travel(bool part1 = true)
         {
@@ -19,9 +23,9 @@ namespace Aoc2021.Puzzles
             foreach (var i in input)
                 switch (i)
                 {
-                    case ("forward", int u): h += u; d += (u * a); break;
-                    case ("up", int u):   a -= u; break;
-                    case ("down", int u): a += u; break;
+                    case ("forward", int u):    h += u; d += (u * a);   break;
+                    case ("up", int u):         a -= u;                 break;
+                    case ("down", int u):       a += u;                 break;
                 }
 
             return part1 ? (h * a) : (h * d);
