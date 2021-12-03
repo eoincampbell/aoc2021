@@ -3,11 +3,7 @@ namespace Aoc2021.Puzzles
 {
     internal class Day03 : Puzzle
     {
-        public Day03() : 
-            base("Inputs/Day03.txt")
-            //base("Inputs/Day03Sample.txt")
-        {
-        }
+        public Day03() : base("Inputs/Day03.txt") { }
 
         private object Part1()
         {
@@ -26,9 +22,7 @@ namespace Aoc2021.Puzzles
 
         private object Part2()
         {
-            var oxy = PuzzleInput.ToList();
-            var c02 = PuzzleInput.ToList();
-
+            List<string> oxy = PuzzleInput.ToList(), c02 = PuzzleInput.ToList();
             for (int i = 0; i < oxy[0].Length; i++)
             {
                 DoRemovals(oxy, i, RemoveWhenMoreOnes: '0', RemoveWhenLessOnes: '1');
@@ -38,16 +32,17 @@ namespace Aoc2021.Puzzles
             return Convert.ToInt32(oxy[0], 2) * Convert.ToInt32(c02[0], 2);
         }
 
-        private void DoRemovals(List<string> data, int idx, char RemoveWhenMoreOnes, char RemoveWhenLessOnes)
+        private static void DoRemovals(List<string> data, int idx, char RemoveWhenMoreOnes, char RemoveWhenLessOnes)
         {
+            if (data.Count == 1) return;
+            
             var moreOnes = HasMoreOnes(data, idx);
             var filter = (moreOnes ? RemoveWhenMoreOnes : RemoveWhenLessOnes);
-            if (data.Count > 1)
-                data.RemoveAll(x => x[idx] == filter);
+            data.RemoveAll(x => x[idx] == filter);
         }
 
         private static bool HasMoreOnes(List<string> data, int idx) 
-            => (data.Count(x => x[idx] == '1') >= data.Count - data.Count(x => x[idx] == '1'));
+            => data.Count(x => x[idx] == '1') >= (data.Count - data.Count(x => x[idx] == '1'));
 
         protected override string Title => "################ Day 03 ####################";
         protected override object RunPart1() => Part1();  //841526
