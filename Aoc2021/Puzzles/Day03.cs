@@ -41,8 +41,9 @@ namespace Aoc2021.Puzzles
             data.RemoveAll(x => x[idx] == filter);
         }
 
-        private static bool HasMoreOnes(List<string> data, int idx) 
-            => data.Count(x => x[idx] == '1') >= (data.Count - data.Count(x => x[idx] == '1'));
+        private static bool HasMoreOnes(List<string> data, int idx) => 
+            data.Count(x => x[idx] == '1') >= 
+            data.Count(x => x[idx] == '0');
 
         protected override string Title => "################ Day 03 ####################";
         protected override object RunPart1() => Part1();  //841526
