@@ -22,6 +22,7 @@ namespace Aoc2021.Puzzles
             msg += ($"   Part 1 | Time: {sw.ElapsedMilliseconds} ms | Result: {p1}{Environment.NewLine}");
 
             sw.Reset();
+
             sw.Start();
             var p2 = RunPart2();
             sw.Stop();

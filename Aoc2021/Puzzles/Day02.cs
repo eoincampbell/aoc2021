@@ -1,11 +1,11 @@
 ﻿
 namespace Aoc2021.Puzzles
 {
-    internal class Day2 : Puzzle
+    internal class Day02 : Puzzle
     {
         private record Instruction (string Direction, int Units);
 
-        public Day2() : 
+        public Day02() : 
             base("Inputs/Day2.txt")
         {
             input = PuzzleInput

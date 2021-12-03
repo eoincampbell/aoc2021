@@ -1,8 +1,8 @@
 ﻿namespace Aoc2021.Puzzles
 {
-    internal class Day1 : Puzzle
+    internal class Day01 : Puzzle
     {
-        public Day1() : 
+        public Day01() : 
             base("Inputs/Day1.txt") 
         {
             arr = PuzzleInput.Select(int.Parse).ToArray();
