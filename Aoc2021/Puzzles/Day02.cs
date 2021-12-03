@@ -6,7 +6,7 @@ namespace Aoc2021.Puzzles
         private record Instruction (string Direction, int Units);
 
         public Day02() : 
-            base("Inputs/Day2.txt")
+            base("Inputs/Day02.txt")
         {
             input = PuzzleInput
                 .Select(x => x.Split(" "))
