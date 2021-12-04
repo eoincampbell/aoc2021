@@ -5,17 +5,14 @@ namespace Aoc2021.Puzzles
     {
         public Day04()
             : base("Inputs/Day04.txt")
-        //: base("Inputs/Day04Sample.txt")
-        {
-            ProcessInput();
-        }
+             => ProcessInput();
 
         private int[] _drum;
         private List<Board> _boards;
 
         private void ProcessInput()
         {
-            List<string> input = PuzzleInput.ToList();
+            var input = PuzzleInput.ToList();
 
             _drum = input[0].Split(",").Select(x => int.Parse(x)).ToArray();
             _boards = new List<Board>();
@@ -24,9 +21,11 @@ namespace Aoc2021.Puzzles
             {
                 var values = new List<int>();
                 for (int j = 1; j < 6; j++)
+                {
                     values.AddRange(input[i + j]
                         .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                         .Select(x => int.Parse(x)));
+                }
 
                 var b = new Board(values);
 
@@ -39,20 +38,24 @@ namespace Aoc2021.Puzzles
             foreach (var b in _boards) b.Reset();
 
             foreach (var number in _drum)
+            {
                 foreach (var board in _boards)
                 {
                     board.MarkCard(number);
                     if (board.Bingo && _boards.Count(predicate) == 0)
-                    {
                         return board.SumOfLeftOvers * number;
-                    }
                 }
+            }
 
             return -1;
         }
 
         protected override string Title => "################ Day 04 ####################";
+
+        //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
         protected override object RunPart1() => PlayBingo(_ => false);  //89001
+
+        //a `b => !b.Bingo` predicate will only return a zero count after the last card BINGOs 
         protected override object RunPart2() => PlayBingo(b => !b.Bingo);  //7296
 
         private class Board
@@ -61,8 +64,8 @@ namespace Aoc2021.Puzzles
             {
                 public bool Marked { get; set; } = Marked;
             }
-            
-            private List<BoardNumber> _values;
+
+            private readonly List<BoardNumber> _values;
 
             public Board(List<int> values)
             {
