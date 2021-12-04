@@ -6,7 +6,7 @@ namespace Aoc2021.Puzzles
     {
         protected abstract string Title { get; }
 
-        protected IEnumerable<string> PuzzleInput { get; private set; }
+        protected IEnumerable<string> PuzzleInput { get; }
 
         public Puzzle(string filePath) => PuzzleInput = File.ReadLines(filePath);
 
