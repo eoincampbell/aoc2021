@@ -25,5 +25,7 @@
             second = list.Count > 1 ? list[1] : default; // or throw
             rest = list.Skip(2).ToList();
         }
+
+        
     }
 }
