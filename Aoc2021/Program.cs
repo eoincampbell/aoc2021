@@ -5,4 +5,5 @@ using Aoc2021.Puzzles;
 //(new Day03()).Run().Print();
 //(new Day04()).Run().Print();
 //(new Day05()).Run().Print();
-(new Day06()).Run().Print();
+//(new Day06()).Run().Print();
+(new Day07()).Run().Print();
