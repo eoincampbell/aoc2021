@@ -26,11 +26,11 @@
             rest = list.Skip(2).ToList();
         }
 
-        internal static T[,] To2DArray<T>(this List<List<T>> source)
+        internal static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source)
         {
             if (source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException(nameof(source));
             }
 
             int max = source.Select(l => l).Max(l => l.Count());
@@ -39,9 +39,10 @@
 
             for (int i = 0; i < source.Count(); i++)
             {
-                for (int j = 0; j < source[i].Count(); j++)
+                var inner = source.ElementAt(i);
+                for (int j = 0; j < inner.Count(); j++)
                 {
-                    result[i, j] = source[i][j];
+                    result[i, j] = inner.ElementAt(j);
                 }
             }
 
