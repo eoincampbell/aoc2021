@@ -60,9 +60,9 @@ namespace Aoc2021.Puzzles
             //9,6,0 all light 6 segments
 
             digits[3] = FigureOutDigit(inputdigits, x => x.Length == 5 && x.Intersect(digits[1]).Count() == 2); //only 3 shares both segments with 1
-            digits[6] = FigureOutDigit(inputdigits, x => x.Length == 6 && x.Intersect(digits[1]).Count() == 1); //only 6 shares a single segment with 1
             digits[9] = FigureOutDigit(inputdigits, x => x.Length == 6 && x.Intersect(digits[3]).Count() == 5); //9 contains all 5 of 3's segments 
-            digits[0] = FigureOutDigit(inputdigits, x => x.Length == 6);                                        //0 is the only 6 segment remaining.
+            digits[0] = FigureOutDigit(inputdigits, x => x.Length == 6 && x.Intersect(digits[7]).Count() == 3); //0 contains all 3 of 7's segments
+            digits[6] = FigureOutDigit(inputdigits, x => x.Length == 6);                                        // is the only 6 segment remaining.
             digits[5] = FigureOutDigit(inputdigits, x => x.Length == 5 && x.Intersect(digits[4]).Count() == 3); //5 has a 3 sgement overlap with 4.
             digits[2] = FigureOutDigit(inputdigits, x => x.Length == 5);                                        //2 remains
 

@@ -7,4 +7,5 @@ using Aoc2021.Puzzles;
 //(new Day05()).Run().Print();
 //(new Day06()).Run().Print();
 //(new Day07()).Run().Print();
-(new Day08()).Run().Print();
+//(new Day08()).Run().Print();
+(new Day09()).Run().Print();
