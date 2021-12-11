@@ -1,4 +1,4 @@
-﻿using Aoc2021.Puzzles.Day2;
+﻿using Aoc2021.Puzzles.Day10EXtensions;
 
 namespace Aoc2021.Puzzles
 {
@@ -65,7 +65,7 @@ namespace Aoc2021.Puzzles
         protected override object RunPart2() => Part2(); //3260812321
     }
 
-    namespace Day2
+    namespace Day10EXtensions
     {
         internal static class Extensions
         {
