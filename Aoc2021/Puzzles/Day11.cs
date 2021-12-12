@@ -6,7 +6,7 @@ namespace Aoc2021.Puzzles
     internal class Day11 : Puzzle
     {
         //Toggle to Show State after each Step;
-        public static bool EnablePrinting => false;
+        public static bool EnablePrinting => true;
 
         public Day11()
             : base("Inputs/Day11.txt")
@@ -23,9 +23,7 @@ namespace Aoc2021.Puzzles
         private object Part1()
         {
             _map.Dump(0);
-            for (var step = 1; step <= 100; step++) //steps 1-100
-                Step(step);
-
+            for (var step = 1; step <= 100; step++) Step(step);
             return _flashCount;
         }
 
@@ -53,17 +51,13 @@ namespace Aoc2021.Puzzles
                     if(_map[y, x] > 9)
                         Flash(y, x);
 
+            _flashCount += _map.Cast<int>().Count(x => x == 0);
             _map.Dump(i);
         }
 
         private void Flash(int y, int x)
         {
-            //this guy doesn't flash, move on
-            if (_map[y, x] <= 9) return;
-
-            //Flash the current octopus and record it.
             _map[y, x] = 0;
-            _flashCount++;
 
             foreach (var m in CoordModifiers)
             {
