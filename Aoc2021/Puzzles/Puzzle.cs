@@ -19,14 +19,14 @@ namespace Aoc2021.Puzzles
             sw.Start();
             var p1 = RunPart1();
             sw.Stop();
-            msg += ($"   Part 1 | Time: {sw.ElapsedMilliseconds} ms | Result: {p1}{Environment.NewLine}");
+            msg += ($"   Part 1 | Time: {sw.ElapsedMilliseconds:0000} ms | Result: {p1}{Environment.NewLine}");
 
             sw.Reset();
 
             sw.Start();
             var p2 = RunPart2();
             sw.Stop();
-            msg += $"   Part 2 | Time: {sw.ElapsedMilliseconds} ms | Result: {p2}";
+            msg += $"   Part 2 | Time: {sw.ElapsedMilliseconds:0000} ms | Result: {p2}";
 
             return msg;
         }
