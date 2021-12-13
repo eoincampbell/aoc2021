@@ -1,5 +1,4 @@
-﻿using Aoc2021;
-namespace Aoc2021.Puzzles
+﻿namespace Aoc2021.Puzzles
 {
     internal class Day05 : Puzzle
     {

@@ -1,10 +1,12 @@
-﻿using System.Linq;
-using Aoc2021.Puzzles.Day11Extensions;
+﻿using Aoc2021.Puzzles.Day11Extensions;
 
 namespace Aoc2021.Puzzles
 {
     internal class Day11 : Puzzle
     {
+        protected override string Title => "################ Day 11 ####################";
+        protected override object RunPart1() => Part1(); //1669  (Sample: 1656)
+        protected override object RunPart2() => Part2(); //351   (Sample: 195)
         //Toggle to Show State after each Step;
         public static bool EnablePrinting => false;
 
@@ -78,11 +80,6 @@ namespace Aoc2021.Puzzles
             x + mx <= MapWidth;
 
         private bool BigFlash() => _map.Cast<int>().Sum() == 0;
-        
-
-        protected override string Title => "################ Day 11 ####################";
-        protected override object RunPart1() => Part1(); //1669  (Sample: 1656)
-        protected override object RunPart2() => Part2(); //351   (Sample: 195)
     }
 
     namespace Day11Extensions

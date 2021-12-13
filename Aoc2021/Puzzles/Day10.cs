@@ -18,8 +18,8 @@ namespace Aoc2021.Puzzles
 
         private readonly List<Stack<char>> _incompleteLines;
         private readonly List<long> _incompleteScores;
-        private static char[] openers => new char[] { '(', '[', '{', '<' };
-        private static char[] closers => new char[] { '>', '}', ']', ')' };
+        private static char[] Openers => new char[] { '(', '[', '{', '<' };
+        private static char[] Closers => new char[] { '>', '}', ']', ')' };
 
         private object Part1()
         {
@@ -31,10 +31,10 @@ namespace Aoc2021.Puzzles
 
                 foreach (var c in line)
                 {
-                    if (openers.Contains(c))
+                    if (Openers.Contains(c))
                         s.Push(c);
                     
-                    if (closers.Contains(c) && c != s.Pop().Opposite())
+                    if (Closers.Contains(c) && c != s.Pop().Opposite())
                     {
                         total += c.WrongValue();
                         isIncomplete = false;

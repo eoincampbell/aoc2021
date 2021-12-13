@@ -1,10 +1,13 @@
-﻿using System.Collections.Immutable;
-using Aoc2021.Puzzles.Day12Extensions;
+﻿using Aoc2021.Puzzles.Day12Extensions;
 
 namespace Aoc2021.Puzzles
 {
     internal class Day12 : Puzzle
     {
+        protected override string Title => "################ Day 12 ####################";
+        protected override object RunPart1() => Part1(); //3738  
+        protected override object RunPart2() => Part2(); //120506   
+
         public Day12()
             : base("Inputs/Day12.txt")
             //: base("Inputs/Day12Sample1.txt") 10  | 36
@@ -22,10 +25,6 @@ namespace Aoc2021.Puzzles
             }
             _routes = new List<List<Cave>>();
         }
-
-        protected override string Title => "################ Day 12 ####################";
-        protected override object RunPart1() => Part1(); //3738  
-        protected override object RunPart2() => Part2(); //120506   
 
         private readonly Dictionary<string, Cave> _caves;
         private List<List<Cave>> _routes;

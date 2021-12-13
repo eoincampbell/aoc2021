@@ -1,5 +1,4 @@
-﻿
-namespace Aoc2021.Puzzles
+﻿namespace Aoc2021.Puzzles
 {
     internal class Day02 : Puzzle
     {
@@ -7,7 +6,7 @@ namespace Aoc2021.Puzzles
         protected override object RunPart1() => Travel();       //1383564
         protected override object RunPart2() => Travel(false);  //1488311643
 
-        public Day02() 
+        public Day02()
             : base("Inputs/Day02.txt")
         {
             input = PuzzleInput

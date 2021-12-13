@@ -46,13 +46,13 @@ namespace Aoc2021.Puzzles
         private object Part1()
         {
             ResetContents();
-            var instruction = _instructions.First();
+            var instruction = _instructions[0];
             var newCoordinates = new HashSet<Coordinate>();
             foreach (var c in _coordinates) newCoordinates.Add(Fold(instruction, c));
             return newCoordinates.Count;
         }
 
-        private Coordinate Fold(Instruction i, Coordinate c)
+        private static Coordinate Fold(Instruction i, Coordinate c)
         {
             if (i.Axis == 'x' && c.X > i.Position)
                 return new Coordinate(c.X - ((c.X - i.Position) * 2), c.Y);
@@ -74,7 +74,6 @@ namespace Aoc2021.Puzzles
             _coordinates.Dump();
             return _coordinates.Count;
         }
-
     }
 
     namespace Day13Extensions

@@ -1,8 +1,4 @@
-﻿using Aoc2021;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
-namespace Aoc2021.Puzzles
+﻿namespace Aoc2021.Puzzles
 {
     internal class Day08 : Puzzle
     {
@@ -12,7 +8,7 @@ namespace Aoc2021.Puzzles
 
         public Day08()
            : base("Inputs/Day08.txt")
-        //: base("Inputs/Day08Sample.txt")
+            //: base("Inputs/Day08Sample.txt")
         { }
 
         private object Part1()
@@ -34,9 +30,9 @@ namespace Aoc2021.Puzzles
         private object Part2()
         {
             int count = 0;
-            foreach (var line in PuzzleInput) 
+            foreach (var line in PuzzleInput)
                 count += ProcessLineBetter(line);
-            
+
             return count;
         }
 
@@ -54,7 +50,7 @@ namespace Aoc2021.Puzzles
             var inputdigits = input.Split(" ").ToList();
             var outputdigits = output.Split(" ", StringSplitOptions.RemoveEmptyEntries);
             var digits = new string[10];
-            
+
             digits[1] = FigureOutDigit(inputdigits, x => x.Length == 2); //1 only lights 2 segments
             digits[7] = FigureOutDigit(inputdigits, x => x.Length == 3); //7 only lights 3 segments
             digits[4] = FigureOutDigit(inputdigits, x => x.Length == 4); //4 only lights 4 segments
@@ -78,15 +74,14 @@ namespace Aoc2021.Puzzles
             return (a * 1000) + (b * 100) + (c * 10) + d;
         }
 
-        private int FindOutputDigitInInput(string[] digits, string digit)
+        private static int FindOutputDigitInInput(string[] digits, string digit)
         {
             //input and output could be out of order... e.g abcde and decba are equivalent displays.
             var d = new string(digit.OrderBy(c => c).ToArray());
 
             for (int i = 0; i < digits.Length; i++)
-                if (digits[i] == d) 
-                    return i;
-            
+                if (digits[i] == d) return i;
+
             return -1000000;
         }
     }

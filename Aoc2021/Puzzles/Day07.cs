@@ -1,8 +1,4 @@
-﻿using Aoc2021;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
-namespace Aoc2021.Puzzles
+﻿namespace Aoc2021.Puzzles
 {
     internal class Day07 : Puzzle
     {

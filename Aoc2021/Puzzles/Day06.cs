@@ -1,8 +1,4 @@
-﻿using Aoc2021;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
-namespace Aoc2021.Puzzles
+﻿namespace Aoc2021.Puzzles
 {
     internal class Day06 : Puzzle
     {
@@ -52,12 +48,12 @@ namespace Aoc2021.Puzzles
                 .Select(int.Parse).GroupBy(x => x)
                 .ToDictionary(k => k.Key, v => (long)v.Count()) ;
 
-            for(int i = 0; i <= 8; i++) 
+            for(int i = 0; i <= 8; i++)
                 spawnDays.TryAdd(i, 0);
 
-            for(int d = 0; d < days; d++) 
+            for(int d = 0; d < days; d++)
                 GoToNextDay(spawnDays);
-            
+
             return spawnDays.Values.Sum();
         }
     }
