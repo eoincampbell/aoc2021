@@ -3,7 +3,12 @@ namespace Aoc2021.Puzzles
 {
     internal class Day03 : Puzzle
     {
-        public Day03() : base("Inputs/Day03.txt") { }
+        protected override string Title => "################ Day 03 ####################";
+        protected override object RunPart1() => Part1();  //841526
+        protected override object RunPart2() => Part2();  //4790390
+
+        public Day03()
+            : base("Inputs/Day03.txt") { }
 
         private object Part1()
         {
@@ -41,12 +46,7 @@ namespace Aoc2021.Puzzles
             data.RemoveAll(x => x[idx] == filter);
         }
 
-        private static bool HasMoreOnes(List<string> data, int idx) => 
-            data.Count(x => x[idx] == '1') >= 
-            data.Count(x => x[idx] == '0');
-
-        protected override string Title => "################ Day 03 ####################";
-        protected override object RunPart1() => Part1();  //841526
-        protected override object RunPart2() => Part2();  //4790390
+        private static bool HasMoreOnes(List<string> data, int idx) =>
+            data.Count(x => x[idx] == '1') >= data.Count(x => x[idx] == '0');
     }
 }

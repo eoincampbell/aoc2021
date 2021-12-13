@@ -6,7 +6,7 @@ namespace Aoc2021.Puzzles
     internal class Day11 : Puzzle
     {
         //Toggle to Show State after each Step;
-        public static bool EnablePrinting => true;
+        public static bool EnablePrinting => false;
 
         public Day11()
             : base("Inputs/Day11.txt")

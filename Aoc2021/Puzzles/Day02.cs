@@ -3,16 +3,20 @@ namespace Aoc2021.Puzzles
 {
     internal class Day02 : Puzzle
     {
-        private record Instruction (string Direction, int Units);
+        protected override string Title => "################ Day 02 ####################";
+        protected override object RunPart1() => Travel();       //1383564
+        protected override object RunPart2() => Travel(false);  //1488311643
 
-        public Day02() : 
-            base("Inputs/Day02.txt")
+        public Day02() 
+            : base("Inputs/Day02.txt")
         {
             input = PuzzleInput
                 .Select(x => x.Split(" "))
                 .Select(y => new Instruction(y[0], int.Parse(y[1])))
                 .ToList();
         }
+
+        private record Instruction(string Direction, int Units);
 
         private readonly List<Instruction> input;
 
@@ -30,9 +34,5 @@ namespace Aoc2021.Puzzles
 
             return part1 ? (h * a) : (h * d);
         }
-
-        protected override string Title => "################ Day 02 ####################";
-        protected override object RunPart1() => Travel();       //1383564
-        protected override object RunPart2() => Travel(false);  //1488311643
     }
 }

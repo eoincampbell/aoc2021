@@ -6,6 +6,10 @@ namespace Aoc2021.Puzzles
 {
     internal class Day08 : Puzzle
     {
+        protected override string Title => "################ Day 08 ####################";
+        protected override object RunPart1() => Part1(); //321
+        protected override object RunPart2() => Part2(); //1028926
+
         public Day08()
            : base("Inputs/Day08.txt")
         //: base("Inputs/Day08Sample.txt")
@@ -85,10 +89,5 @@ namespace Aoc2021.Puzzles
             
             return -1000000;
         }
-
-        protected override string Title => "################ Day 08 ####################";
-        protected override object RunPart1() => Part1(); //321
-        protected override object RunPart2() => Part2(); //1028926
-
     }
 }

@@ -6,6 +6,10 @@ namespace Aoc2021.Puzzles
 {
     internal class Day07 : Puzzle
     {
+        protected override string Title => "################ Day 07 ####################";
+        protected override object RunPart1() => Part1Better(); //344138
+        protected override object RunPart2() => Part2Better(); //94862124
+
         public Day07()
            : base("Inputs/Day07.txt")
         //: base("Inputs/Day07Sample.txt")
@@ -53,9 +57,5 @@ namespace Aoc2021.Puzzles
         private int Triangle(int n) => (n * (n + 1)) / 2;
 
         private int[] Input => PuzzleInput.First().Split(",").Select(int.Parse).OrderBy(x => x).ToArray();
-
-        protected override string Title => "################ Day 07 ####################";
-        protected override object RunPart1() => Part1or2(false);    //  
-        protected override object RunPart2() => Part2Better(); //Part1or2(false);
     }
 }

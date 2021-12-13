@@ -1,4 +1,5 @@
-﻿using Aoc2021.Puzzles.Day12Extensions;
+﻿using System.Collections.Immutable;
+using Aoc2021.Puzzles.Day12Extensions;
 
 namespace Aoc2021.Puzzles
 {

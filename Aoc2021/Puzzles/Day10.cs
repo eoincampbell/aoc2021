@@ -4,9 +4,13 @@ namespace Aoc2021.Puzzles
 {
     internal class Day10 : Puzzle
     {
+        protected override string Title => "################ Day 10 ####################";
+        protected override object RunPart1() => Part1(); //240123
+        protected override object RunPart2() => Part2(); //3260812321
+                                                         
         public Day10()
-        : base("Inputs/Day10.txt")
-        //: base("Inputs/Day10Sample.txt")
+            : base("Inputs/Day10.txt")
+            //: base("Inputs/Day10Sample.txt")
         {
             _incompleteLines = new List<Stack<char>>();
             _incompleteScores = new List<long>();
@@ -14,6 +18,8 @@ namespace Aoc2021.Puzzles
 
         private readonly List<Stack<char>> _incompleteLines;
         private readonly List<long> _incompleteScores;
+        private static char[] openers => new char[] { '(', '[', '{', '<' };
+        private static char[] closers => new char[] { '>', '}', ']', ')' };
 
         private object Part1()
         {
@@ -36,9 +42,7 @@ namespace Aoc2021.Puzzles
                     }
                 }
 
-                if (isIncomplete)
-                    _incompleteLines.Add(s);
-                
+                if (isIncomplete)_incompleteLines.Add(s);
             }
             return total;
         }
@@ -56,13 +60,6 @@ namespace Aoc2021.Puzzles
 
             return _incompleteScores.OrderBy(o => o).Skip(_incompleteScores.Count / 2).First();
         }
-
-        private static char[] openers => new char[] { '(', '[', '{', '<' };
-        private static char[] closers => new char[] { '>', '}', ']', ')' };
-
-        protected override string Title => "################ Day 10 ####################";
-        protected override object RunPart1() => Part1(); //240123
-        protected override object RunPart2() => Part2(); //3260812321
     }
 
     namespace Day10EXtensions

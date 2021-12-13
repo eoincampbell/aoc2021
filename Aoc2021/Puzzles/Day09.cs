@@ -2,9 +2,13 @@
 {
     internal class Day09 : Puzzle
     {
+        protected override string Title => "################ Day 09 ####################";
+        protected override object RunPart1() => Part1(); //532
+        protected override object RunPart2() => Part2(); //1110780
+
         public Day09()
-        : base("Inputs/Day09.txt")
-        //: base("Inputs/Day09Sample.txt")
+            : base("Inputs/Day09.txt")
+            //: base("Inputs/Day09Sample.txt")
         {
             _map = PuzzleInput
                 .Select(x => x.Select(y => int.Parse(y.ToString())))
@@ -87,10 +91,5 @@
                 .Take(3)
                 .Product();
         }
-
-        protected override string Title => "################ Day 09 ####################";
-        protected override object RunPart1() => Part1(); //532
-        protected override object RunPart2() => Part2(); //1110780
-
     }
 }

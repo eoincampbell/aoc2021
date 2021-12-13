@@ -6,8 +6,16 @@ namespace Aoc2021.Puzzles
 {
     internal class Day06 : Puzzle
     {
+        protected override string Title => "################ Day 06 ####################";
+        protected override object RunPart1() => Part2Better(80);  //  352872          || Sample 18:    80: 5394
+        protected override object RunPart2() => Part2Better(256); //  1604361182149
+
         public Day06()
-            : base("Inputs/Day06.txt") { } //: base("Inputs/Day06Sample.txt")
+            : base("Inputs/Day06.txt")
+            //: base("Inputs/Day06Sample.txt")
+        {
+
+        }
 
         private static void GoToNextDay(Dictionary<int, long> input)
         {
@@ -52,10 +60,6 @@ namespace Aoc2021.Puzzles
             
             return spawnDays.Values.Sum();
         }
-
-        protected override string Title => "################ Day 06 ####################";
-        protected override object RunPart1() => Part2Better(80);  //  352872          || Sample 18:    80: 5394
-        protected override object RunPart2() => Part2Better(256); //  1604361182149
     }
 
     //var temp = input.GetValueOrDefault(0);

@@ -3,9 +3,21 @@ namespace Aoc2021.Puzzles
 {
     internal class Day04 : Puzzle
     {
+        protected override string Title => "################ Day 04 ####################";
+
+        //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
+        protected override object RunPart1() => PlayBingo(_ => false);  //89001
+
+        //a `b => !b.Bingo` predicate will only return a zero count after the last card BINGOs 
+        protected override object RunPart2() => PlayBingo(b => !b.Bingo);  //7296
+
         public Day04()
-            : base("Inputs/Day04.txt")
-             => ProcessInput();
+            : base("Inputs/Day04.txt") {
+            _drum = Array.Empty<int>();
+            _boards = new List<Board>();
+            ProcessInput();
+        }
+             
 
         private int[] _drum;
         private List<Board> _boards;
@@ -50,13 +62,7 @@ namespace Aoc2021.Puzzles
             return -1;
         }
 
-        protected override string Title => "################ Day 04 ####################";
-
-        //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
-        protected override object RunPart1() => PlayBingo(_ => false);  //89001
-
-        //a `b => !b.Bingo` predicate will only return a zero count after the last card BINGOs 
-        protected override object RunPart2() => PlayBingo(b => !b.Bingo);  //7296
+        
 
         private class Board
         {

@@ -3,6 +3,10 @@ namespace Aoc2021.Puzzles
 {
     internal class Day05 : Puzzle
     {
+        protected override string Title => "################ Day 05 ####################";
+        protected override object RunPart1() => Process(); //4826 (5)
+        protected override object RunPart2() => Process(skipDiagonals: false); //16793 (12)
+
         public Day05()
             : base("Inputs/Day05.txt")
             //: base("Inputs/Day05Sample.txt")
@@ -48,9 +52,5 @@ namespace Aoc2021.Puzzles
 
         private void UpdateCoord(int x, int y) =>
             _coords[(x, y)] = _coords.ContainsKey((x, y)) ? _coords[(x, y)] + 1 : 1;
-
-        protected override string Title => "################ Day 05 ####################";
-        protected override object RunPart1() => Process(); //4826 (5)
-        protected override object RunPart2() => Process(skipDiagonals: false); //16793 (12)
     }
 }
