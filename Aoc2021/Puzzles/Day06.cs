@@ -2,7 +2,7 @@
 {
     internal class Day06 : Puzzle
     {
-        protected override string Title => "################ Day 06 ####################";
+        protected override int Day => 6;
         protected override object RunPart1() => Part2Better(80);  //  352872          || Sample 18:    80: 5394
         protected override object RunPart2() => Part2Better(256); //  1604361182149
 
@@ -10,20 +10,21 @@
             : base("Inputs/Day06.txt")
             //: base("Inputs/Day06Sample.txt")
         {
-
         }
 
-        private static void GoToNextDay(Dictionary<int, long> input)
-        {
-            var zeroDay = input[0];
-            for(int i = 0; i<=8; i++)
-                input[i] = i switch
-                {
-                    6 => input[i + 1] + zeroDay,
-                    8 => zeroDay,
-                    _ => input[i + 1],
-                };
-        }
+        //private static void GoToNextDay(Dictionary<int, long> input)
+        //{
+        //    var zeroDay = input[0];
+        //    for(int i = 0; i<=8; i++)
+        //    {
+        //        input[i] = i switch
+        //        {
+        //            6 => input[i + 1] + zeroDay,
+        //            8 => zeroDay,
+        //            _ => input[i + 1],
+        //        };
+        //    }
+        //}
 
         private object Part2Better(int days)
         {
@@ -39,23 +40,22 @@
             return fish.Sum();
         }
 
+        //private object Part2(int days)
+        //{
+        //    var (input, _) = PuzzleInput.ToList();
 
-        private object Part2(int days)
-        {
-            var (input, _) = PuzzleInput.ToList();
+        //    var spawnDays = input.Split(",")
+        //        .Select(int.Parse).GroupBy(x => x)
+        //        .ToDictionary(k => k.Key, v => (long)v.Count()) ;
 
-            var spawnDays = input.Split(",")
-                .Select(int.Parse).GroupBy(x => x)
-                .ToDictionary(k => k.Key, v => (long)v.Count()) ;
+        //    for(int i = 0; i <= 8; i++)
+        //        spawnDays.TryAdd(i, 0);
 
-            for(int i = 0; i <= 8; i++)
-                spawnDays.TryAdd(i, 0);
+        //    for(int d = 0; d < days; d++)
+        //        GoToNextDay(spawnDays);
 
-            for(int d = 0; d < days; d++)
-                GoToNextDay(spawnDays);
-
-            return spawnDays.Values.Sum();
-        }
+        //    return spawnDays.Values.Sum();
+        //}
     }
 
     //var temp = input.GetValueOrDefault(0);

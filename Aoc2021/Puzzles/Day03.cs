@@ -2,7 +2,7 @@
 {
     internal class Day03 : Puzzle
     {
-        protected override string Title => "################ Day 03 ####################";
+        protected override int Day => 3;
         protected override object RunPart1() => Part1();  //841526
         protected override object RunPart2() => Part2();  //4790390
 
@@ -39,7 +39,7 @@
         private static void DoRemovals(List<string> data, int idx, char RemoveWhenMoreOnes, char RemoveWhenLessOnes)
         {
             if (data.Count == 1) return;
-            
+
             var moreOnes = HasMoreOnes(data, idx);
             var filter = (moreOnes ? RemoveWhenMoreOnes : RemoveWhenLessOnes);
             data.RemoveAll(x => x[idx] == filter);

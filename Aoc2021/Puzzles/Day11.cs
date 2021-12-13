@@ -4,7 +4,7 @@ namespace Aoc2021.Puzzles
 {
     internal class Day11 : Puzzle
     {
-        protected override string Title => "################ Day 11 ####################";
+        protected override int Day => 11;
         protected override object RunPart1() => Part1(); //1669  (Sample: 1656)
         protected override object RunPart2() => Part2(); //351   (Sample: 195)
         //Toggle to Show State after each Step;
@@ -43,15 +43,25 @@ namespace Aoc2021.Puzzles
         {
             //Increase everyone by 1
             for (int y = 0; y <= MapHeight; y++)
+            {
                 for (int x = 0; x <= MapWidth; x++)
+                {
                     _map[y, x]++;
+                }
+            }
 
             //Find any >9's that havent yet been processed
             //they might get processed internally in the recursive loops so this is just a starting point and covers stragglers
             for (int y = 0; y <= MapHeight; y++)
+            {
                 for (int x = 0; x <= MapWidth; x++)
-                    if(_map[y, x] > 9)
+                {
+                    if (_map[y, x] > 9)
+                    {
                         Flash(y, x);
+                    }
+                }
+            }
 
             _flashCount += _map.Cast<int>().Count(x => x == 0);
             _map.Dump(i);

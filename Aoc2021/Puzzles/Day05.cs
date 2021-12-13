@@ -2,7 +2,7 @@
 {
     internal class Day05 : Puzzle
     {
-        protected override string Title => "################ Day 05 ####################";
+        protected override int Day => 5;
         protected override object RunPart1() => Process(); //4826 (5)
         protected override object RunPart2() => Process(skipDiagonals: false); //16793 (12)
 

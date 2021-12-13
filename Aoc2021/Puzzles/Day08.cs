@@ -2,7 +2,7 @@
 {
     internal class Day08 : Puzzle
     {
-        protected override string Title => "################ Day 08 ####################";
+        protected override int Day => 8;
         protected override object RunPart1() => Part1(); //321
         protected override object RunPart2() => Part2(); //1028926
 
@@ -36,14 +36,14 @@
             return count;
         }
 
-        private string FigureOutDigit(List<string> input, Func<string, bool> predicate)
+        private static string FigureOutDigit(List<string> input, Func<string, bool> predicate)
         {
             var find = input.First(predicate);
             input.Remove(find);
             return new string(find.OrderBy(c=>c).ToArray()); //Added the order by for the final comparison step with the output
         }
 
-        private int ProcessLineBetter(string line)
+        private static int ProcessLineBetter(string line)
         {
             var (input, output, _) = line.Split("|").ToList();
 

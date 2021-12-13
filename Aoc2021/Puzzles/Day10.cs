@@ -4,10 +4,10 @@ namespace Aoc2021.Puzzles
 {
     internal class Day10 : Puzzle
     {
-        protected override string Title => "################ Day 10 ####################";
+        protected override int Day => 10;
         protected override object RunPart1() => Part1(); //240123
         protected override object RunPart2() => Part2(); //3260812321
-                                                         
+
         public Day10()
             : base("Inputs/Day10.txt")
             //: base("Inputs/Day10Sample.txt")
@@ -33,7 +33,7 @@ namespace Aoc2021.Puzzles
                 {
                     if (Openers.Contains(c))
                         s.Push(c);
-                    
+
                     if (Closers.Contains(c) && c != s.Pop().Opposite())
                     {
                         total += c.WrongValue();

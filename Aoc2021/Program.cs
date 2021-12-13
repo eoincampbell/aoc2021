@@ -1,15 +1,25 @@
 ﻿using Aoc2021;
 using Aoc2021.Puzzles;
-//(new Day01()).Run().Print();
-//(new Day02()).Run().Print();
-//(new Day03()).Run().Print();
-//(new Day04()).Run().Print();
-//(new Day05()).Run().Print();
-//(new Day06()).Run().Print();
-//(new Day07()).Run().Print();
-//(new Day08()).Run().Print();
-//(new Day09()).Run().Print();
-//(new Day10()).Run().Print();
-//(new Day11()).Run().Print();
-//(new Day12()).Run().Print();
-(new Day13()).Run().Print();
+
+var days = new List<Puzzle>
+{
+    new Day01(),
+    new Day02(),
+    new Day03(),
+    new Day04(),
+    new Day05(),
+    new Day06(),
+    new Day07(),
+    new Day08(),
+    new Day09(),
+    new Day10(),
+    new Day11(),
+    new Day12(),
+    new Day13(),
+};
+
+Puzzle.Header.Print();
+foreach (var day in days)
+{
+    day.Run().Print();
+}

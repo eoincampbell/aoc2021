@@ -2,7 +2,7 @@
 {
     internal class Day02 : Puzzle
     {
-        protected override string Title => "################ Day 02 ####################";
+        protected override int Day => 2;
         protected override object RunPart1() => Travel();       //1383564
         protected override object RunPart2() => Travel(false);  //1488311643
 
@@ -24,12 +24,14 @@
             int a = 0, h= 0, d = 0;
 
             foreach (var i in input)
+            {
                 switch (i)
                 {
-                    case ("forward", int u):    h += u; d += (u * a);   break;
-                    case ("up", int u):         a -= u;                 break;
-                    case ("down", int u):       a += u;                 break;
+                    case ("forward", int u): h += u; d += (u * a); break;
+                    case ("up", int u): a -= u; break;
+                    case ("down", int u): a += u; break;
                 }
+            }
 
             return part1 ? (h * a) : (h * d);
         }

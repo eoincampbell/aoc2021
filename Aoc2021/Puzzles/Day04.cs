@@ -2,7 +2,7 @@
 {
     internal class Day04 : Puzzle
     {
-        protected override string Title => "################ Day 04 ####################";
+        protected override int Day => 4;
 
         //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
         protected override object RunPart1() => PlayBingo(_ => false);  //89001
@@ -16,7 +16,6 @@
             _boards = new List<Board>();
             ProcessInput();
         }
-             
 
         private int[] _drum;
         private List<Board> _boards;
@@ -53,15 +52,13 @@
                 foreach (var board in _boards)
                 {
                     board.MarkCard(number);
-                    if (board.Bingo && _boards.Count(predicate) == 0)
+                    if (board.Bingo && !_boards.Any(predicate))
                         return board.SumOfLeftOvers * number;
                 }
             }
 
             return -1;
         }
-
-        
 
         private class Board
         {
@@ -74,7 +71,7 @@
 
             public Board(List<int> values)
             {
-                _values = values.Select(x => new BoardNumber(x, false)).ToList();
+                _values = values.ConvertAll(x => new BoardNumber(x, false));
             }
 
             public void MarkCard(int number)
@@ -103,7 +100,7 @@
                         (_values[1].Marked && _values[6].Marked && _values[11].Marked && _values[16].Marked && _values[21].Marked) ||
                         (_values[2].Marked && _values[7].Marked && _values[12].Marked && _values[17].Marked && _values[22].Marked) ||
                         (_values[3].Marked && _values[8].Marked && _values[13].Marked && _values[18].Marked && _values[23].Marked) ||
-                        (_values[4].Marked && _values[9].Marked && _values[14].Marked && _values[19].Marked && _values[24].Marked);       
+                        (_values[4].Marked && _values[9].Marked && _values[14].Marked && _values[19].Marked && _values[24].Marked);
                 }
             }
         }

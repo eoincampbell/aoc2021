@@ -4,7 +4,7 @@ namespace Aoc2021.Puzzles
 {
     internal class Day13 : Puzzle
     {
-        protected override string Title => "################ Day 13 ####################";
+        protected override int Day => 13;
         protected override object RunPart1() => Part1(); //  666
         protected override object RunPart2() => Part2(); //  CJHAZHKU (97 Chars)
 
@@ -85,8 +85,13 @@ namespace Aoc2021.Puzzles
                 int maxY = coordinates.Max(c => c.Y), maxX = coordinates.Max(c => c.X);
 
                 for (int y = 0; y <= maxY; y++)
+                {
                     for (int x = 0; x <= maxX; x++)
-                        Console.Write((coordinates.Contains(new Coordinate(x, y)) ? "##" : "  ") + (x != maxX ? string.Empty : Environment.NewLine));
+                    {
+                        Console.Write((coordinates.Contains(new Coordinate(x, y)) ? "##" : "  ") +
+                            (x != maxX ? string.Empty : Environment.NewLine));
+                    }
+                }
             }
         }
 

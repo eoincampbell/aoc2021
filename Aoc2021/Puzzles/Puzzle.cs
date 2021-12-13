@@ -4,29 +4,30 @@ namespace Aoc2021.Puzzles
 {
     internal abstract class Puzzle
     {
-        protected abstract string Title { get; }
+        public static string Header
+            => "  Day |  Part | Execution Time |          Result";
+        protected abstract int Day { get; }
 
         protected IEnumerable<string> PuzzleInput { get; }
 
-        public Puzzle(string filePath) => PuzzleInput = File.ReadLines(filePath);
+        protected Puzzle(string filePath) => PuzzleInput = File.ReadLines(filePath);
 
         public string Run()
         {
-            var msg = Title + Environment.NewLine;
-
+            var msg = string.Empty;
             var sw = new Stopwatch();
 
             sw.Start();
             var p1 = RunPart1();
             sw.Stop();
-            msg += ($"   Part 1 | Time: {sw.ElapsedMilliseconds:0000} ms | Result: {p1}{Environment.NewLine}");
+            msg += ($"{Day,5:00} | {"1",5} | {sw.ElapsedTicks/ 10,11:#,###} µs | {p1,15}{Environment.NewLine}");
 
             sw.Reset();
 
             sw.Start();
             var p2 = RunPart2();
             sw.Stop();
-            msg += $"   Part 2 | Time: {sw.ElapsedMilliseconds:0000} ms | Result: {p2}";
+            msg += $"{Day,5:00} | {"2",5} | {sw.ElapsedTicks / 10,11:#,###} µs | {p2,15}";
 
             return msg;
         }
