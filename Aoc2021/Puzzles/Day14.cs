@@ -7,7 +7,7 @@
         protected override object RunPart2() => Process(40); //4110215602456
 
         private readonly Dictionary<string, string> _insertionRules;
-        private string _polymer => PuzzleInput.FirstOrDefault()!;
+        private string Polymer => PuzzleInput.FirstOrDefault()!;
 
         public Day14(): base("Inputs/Day14.txt")
         {
@@ -22,12 +22,12 @@
         private object Process(int steps)
         {
             var pairs = Enumerable
-                .Range(0, _polymer.Length - 1)                          // 10 char polymer has 9 pairs
-                .Select(idx => _polymer[idx..(idx + 2)])                // foreach generate a consecutive pair... Yay IndexRanges
+                .Range(0, Polymer.Length - 1)                          // 10 char polymer has 9 pairs
+                .Select(idx => Polymer[idx..(idx + 2)])                // foreach generate a consecutive pair... Yay IndexRanges
                 .GroupBy(p => p)                                        // Group the pairs (incase their dupes)
                 .ToDictionary(d => d.Key, d => d.LongCount());          // Add the Pairs to a tracking dict with their occurrence count
 
-            var el = _polymer                                           // Also add each char element to a tracking dicct
+            var el = Polymer                                           // Also add each char element to a tracking dicct
                 .GroupBy(p => p)                                        // for tracking the occurrence count
                 .ToDictionary(d => d.Key.ToString(), d => d.LongCount());
 

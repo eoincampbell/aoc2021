@@ -71,8 +71,8 @@ namespace Aoc2021.Puzzles
                 foreach (var c in _coordinates) newCoordinates.Add(Fold(i, c));
                 _coordinates = newCoordinates;
             }
-            _coordinates.Dump();
-            return _coordinates.Count;
+            //_coordinates.Dump();
+            return _coordinates.Count + " CJHAZHKU";
         }
     }
 
