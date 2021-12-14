@@ -2,7 +2,7 @@
 {
     internal class Day02 : Puzzle
     {
-        protected override int Day => 2;
+        public override int Day => 2;
         protected override object RunPart1() => Travel();       //1383564
         protected override object RunPart2() => Travel(false);  //1488311643
 

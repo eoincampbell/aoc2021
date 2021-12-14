@@ -4,7 +4,7 @@ namespace Aoc2021.Puzzles
 {
     internal class Day10 : Puzzle
     {
-        protected override int Day => 10;
+        public override int Day => 10;
         protected override object RunPart1() => Part1(); //240123
         protected override object RunPart2() => Part2(); //3260812321
 

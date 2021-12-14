@@ -16,10 +16,13 @@ var days = new List<Puzzle>
     new Day11(),
     new Day12(),
     new Day13(),
+    new Day14(),
 };
 
+bool currentDayOnly = true;
+
 Puzzle.Header.Print();
-foreach (var day in days)
+foreach (var day in currentDayOnly ? days.OrderByDescending(x => x.Day).Take(1): days )
 {
     day.Run().Print();
 }

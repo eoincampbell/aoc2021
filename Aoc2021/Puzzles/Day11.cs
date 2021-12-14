@@ -4,7 +4,7 @@ namespace Aoc2021.Puzzles
 {
     internal class Day11 : Puzzle
     {
-        protected override int Day => 11;
+        public override int Day => 11;
         protected override object RunPart1() => Part1(); //1669  (Sample: 1656)
         protected override object RunPart2() => Part2(); //351   (Sample: 195)
         //Toggle to Show State after each Step;

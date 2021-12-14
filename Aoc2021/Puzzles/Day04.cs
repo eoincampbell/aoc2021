@@ -2,7 +2,7 @@
 {
     internal class Day04 : Puzzle
     {
-        protected override int Day => 4;
+        public override int Day => 4;
 
         //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
         protected override object RunPart1() => PlayBingo(_ => false);  //89001

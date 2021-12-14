@@ -4,13 +4,15 @@ namespace Aoc2021.Puzzles
 {
     internal abstract class Puzzle
     {
-        public static string Header
-            => "  Day |  Part | Execution Time |          Result";
-        protected abstract int Day { get; }
+        public static string Header => "  Day |  Part | Execution Time |          Result";
 
         protected IEnumerable<string> PuzzleInput { get; }
 
         protected Puzzle(string filePath) => PuzzleInput = File.ReadLines(filePath);
+
+        public abstract int Day { get; }
+        protected abstract object RunPart1();
+        protected abstract object RunPart2();
 
         public string Run()
         {
@@ -31,8 +33,5 @@ namespace Aoc2021.Puzzles
 
             return msg;
         }
-
-        protected abstract object RunPart1();
-        protected abstract object RunPart2();
     }
 }
