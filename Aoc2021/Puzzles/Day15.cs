@@ -4,8 +4,8 @@ namespace Aoc2021.Puzzles
     internal class Day15 : Puzzle
     {
         public override int Day => 15;
-        protected override object RunPart1() => Run();      //388   (Sample: 40)
-        protected override object RunPart2() => Run(5,5);   //2819  (Sample: 315)
+        protected override object RunPart1() => FindShortestPath();      //388   (Sample: 40)
+        protected override object RunPart2() => FindShortestPath(5,5);   //2819  (Sample: 315)
 
         public Day15()
             : base("Inputs/Day15.txt")
@@ -39,18 +39,18 @@ namespace Aoc2021.Puzzles
             }
         }
 
-        private object Run(int hTitles = 1, int vTiles = 1)
+        private object FindShortestPath(int hTitles = 1, int vTiles = 1, bool print = false)
         {
             ConfigureMap(hTitles, vTiles);
-            var src = (0, 0);
-            var tgt = (GraphWidth(hTitles) - 1, GraphHeight(vTiles) - 1);
-            return GetShortestPathTo(src, tgt);
-        }
+            Node src = (0, 0);
+            Node tgt = (GraphWidth(hTitles) - 1, GraphHeight(vTiles) - 1);
 
-        private int GetShortestPathTo(Node source, Node target)
-        {
-            var route = AStar(source, target);      //Generate Route
-            return route[1..].Sum(node => _graph[node]);  //Calc Path excluding starting node
+            var route = AStar(src, tgt);
+
+            if(print)
+                _graph.Dump(tgt.X, tgt.Y, route);
+
+            return route[1..].Sum(node => _graph[node]);
         }
 
         private Node[] AStar(Node source, Node target)
@@ -106,15 +106,20 @@ namespace Aoc2021.Puzzles
     {
         internal static class Extensions
         {
-            public static void Dump(this Dictionary<Node,int> map, int w, int h)
+            public static void Dump(this Dictionary<Node,int> map, int w, int h, Node[] route)
             {
-                int maxY = h, maxX = w;
+                Console.ForegroundColor = ConsoleColor.Gray;
+                var routeH = route.ToHashSet();
 
-                for (int y = 0; y < maxY; y++)
+                for (int y = 0; y <= h; y++)
                 {
-                    for (int x = 0; x < maxX; x++)
+                    for (int x = 0; x <= w; x++)
                     {
+                        if(routeH.Contains((y,x)))
+                            Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write(map[(y,x)]);
+                        if (routeH.Contains((y, x)))
+                            Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     Console.WriteLine("");
                 }
