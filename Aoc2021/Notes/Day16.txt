@@ -1,0 +1,268 @@
+﻿Ver: 7 | Pkt: Operator | Typ: 0
+  Ver: 0 | Pkt: Operator | Typ: 1
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 1161
+    Ver: 3 | Pkt: Operator | Typ: 6
+      Ver: 5 | Pkt: Operator | Typ: 0
+        Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 2
+        Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 4
+        Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 13
+      Ver: 3 | Pkt: Operator | Typ: 0
+        Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 6
+        Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 6
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3
+  Ver: 5 | Pkt: Operator | Typ: 1
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 5250146
+    Ver: 7 | Pkt: Operator | Typ: 6
+      Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 246310804
+      Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 246310804
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 6 | Pkt: Operator | Typ: 5
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 4401420
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 55853
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 6
+  Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3759
+  Ver: 4 | Pkt: Operator | Typ: 3
+    Ver: 2 | Pkt: Operator | Typ: 3
+      Ver: 0 | Pkt: Operator | Typ: 0
+        Ver: 0 | Pkt: Operator | Typ: 2
+          Ver: 1 | Pkt: Operator | Typ: 3
+            Ver: 1 | Pkt: Operator | Typ: 2
+              Ver: 7 | Pkt: Operator | Typ: 3
+                Ver: 2 | Pkt: Operator | Typ: 3
+                  Ver: 5 | Pkt: Operator | Typ: 3
+                    Ver: 6 | Pkt: Operator | Typ: 1
+                      Ver: 0 | Pkt: Operator | Typ: 3
+                        Ver: 4 | Pkt: Operator | Typ: 0
+                          Ver: 2 | Pkt: Operator | Typ: 1
+                            Ver: 2 | Pkt: Operator | Typ: 0
+                              Ver: 6 | Pkt: Operator | Typ: 2
+                                Ver: 0 | Pkt: Operator | Typ: 0
+                                  Ver: 4 | Pkt: Operator | Typ: 2
+                                    Ver: 4 | Pkt: Operator | Typ: 1
+                                      Ver: 2 | Pkt: Operator | Typ: 0
+                                        Ver: 0 | Pkt: Operator | Typ: 2
+                                          Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 210
+  Ver: 4 | Pkt: Operator | Typ: 3
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 221698353
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 12235055
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 5985701
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 993960
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 562644
+  Ver: 5 | Pkt: Operator | Typ: 2
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 2527
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 53
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 3749816546
+  Ver: 6 | Pkt: Operator | Typ: 1
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 33
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 118
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 5
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 200
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 111
+  Ver: 5 | Pkt: Operator | Typ: 0
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 15
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 1
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 1534196055
+  Ver: 4 | Pkt: Operator | Typ: 1
+    Ver: 7 | Pkt: Operator | Typ: 7
+      Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 121
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 3640
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 14342924
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 57619135
+    Ver: 4 | Pkt: Operator | Typ: 7
+      Ver: 5 | Pkt: Operator | Typ: 0
+        Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 3
+        Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 5
+        Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 4
+      Ver: 6 | Pkt: Operator | Typ: 0
+        Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 7
+        Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 11
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3
+  Ver: 1 | Pkt: Operator | Typ: 3
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 16652
+  Ver: 3 | Pkt: Operator | Typ: 1
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 202
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 216
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 247
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 228
+  Ver: 5 | Pkt: Operator | Typ: 1
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 51
+    Ver: 4 | Pkt: Operator | Typ: 6
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 5309559
+      Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 242
+  Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 5058445
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 111
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 160
+  Ver: 6 | Pkt: Operator | Typ: 1
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 69
+    Ver: 1 | Pkt: Operator | Typ: 5
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 47728
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 47728
+  Ver: 4 | Pkt: Operator | Typ: 1
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 46
+    Ver: 5 | Pkt: Operator | Typ: 5
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 9
+      Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 5788547
+  Ver: 3 | Pkt: Operator | Typ: 1
+    Ver: 3 | Pkt: Operator | Typ: 6
+      Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 13750614
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 63219915833
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 1682243705
+  Ver: 2 | Pkt: Operator | Typ: 1
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 25033
+    Ver: 3 | Pkt: Operator | Typ: 5
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 147
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 147
+  Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 46957
+  Ver: 6 | Pkt: Operator | Typ: 1
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 163
+  Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 15872
+  Ver: 6 | Pkt: Operator | Typ: 1
+    Ver: 5 | Pkt: Operator | Typ: 6
+      Ver: 4 | Pkt: Operator | Typ: 0
+        Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 3
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 12
+        Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 5
+      Ver: 7 | Pkt: Operator | Typ: 0
+        Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 6
+        Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 12
+        Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 6
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 220
+  Ver: 3 | Pkt: Operator | Typ: 1
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 176
+    Ver: 7 | Pkt: Operator | Typ: 6
+      Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 72409
+      Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 26342
+  Ver: 1 | Pkt: Operator | Typ: 0
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 848
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 856
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 428489
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 1008
+  Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 3894
+  Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 12
+  Ver: 4 | Pkt: Operator | Typ: 2
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 7722
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 787
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 14984475
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 447786
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 2 | Pkt: Operator | Typ: 7
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 79
+      Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 79
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 1035635
+  Ver: 3 | Pkt: Operator | Typ: 1
+    Ver: 5 | Pkt: Operator | Typ: 0
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 6
+      Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 9
+      Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 7
+    Ver: 7 | Pkt: Operator | Typ: 0
+      Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 5
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 12
+      Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 8
+    Ver: 4 | Pkt: Operator | Typ: 0
+      Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 7
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 9
+      Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 9
+  Ver: 4 | Pkt: Operator | Typ: 1
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 1610
+    Ver: 7 | Pkt: Operator | Typ: 5
+      Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 273381
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 80749
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 629
+    Ver: 6 | Pkt: Operator | Typ: 7
+      Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 172
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 139
+  Ver: 1 | Pkt: Operator | Typ: 1
+    Ver: 3 | Pkt: Operator | Typ: 5
+      Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 10
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 6242768568
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 189
+  Ver: 3 | Pkt: Operator | Typ: 2
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 1162
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 2395511720
+  Ver: 6 | Pkt: Operator | Typ: 1
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 235
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 179
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 131
+  Ver: 4 | Pkt: Operator | Typ: 3
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 494786039859
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 151573
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 32919
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 7
+  Ver: 0 | Pkt: Operator | Typ: 2
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 24812
+  Ver: 3 | Pkt: Operator | Typ: 1
+    Ver: 6 | Pkt: Operator | Typ: 5
+      Ver: 1 | Pkt: Operator | Typ: 0
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3
+        Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 3
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 15
+      Ver: 1 | Pkt: Operator | Typ: 0
+        Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 11
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 6
+        Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 9
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 1672
+  Ver: 5 | Pkt: Operator | Typ: 0
+    Ver: 5 | Pkt: Operator | Typ: 1
+      Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 12
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 4
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 13
+    Ver: 0 | Pkt: Operator | Typ: 1
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 14
+      Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 4
+      Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 13
+    Ver: 6 | Pkt: Operator | Typ: 1
+      Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 15
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 10
+      Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 14
+  Ver: 7 | Pkt: Operator | Typ: 1
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 1714
+    Ver: 2 | Pkt: Operator | Typ: 6
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 12776488
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 12776488
+  Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 1924485091
+  Ver: 5 | Pkt: Operator | Typ: 0
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 162
+  Ver: 6 | Pkt: Operator | Typ: 0
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 183
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 184
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 470674
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 3
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 11661682
+  Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 3126
+  Ver: 0 | Pkt: Operator | Typ: 1
+    Ver: 1 | Pkt: Operator | Typ: 6
+      Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3941
+      Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 19411949671
+    Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 59
+  Ver: 4 | Pkt: Operator | Typ: 0
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 3593230329
+    Ver: 0 | Pkt: Literal  | Typ: 4 | Val: 8
+  Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 5
+  Ver: 6 | Pkt: Operator | Typ: 3
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 42
+    Ver: 7 | Pkt: Literal  | Typ: 4 | Val: 36
+    Ver: 1 | Pkt: Literal  | Typ: 4 | Val: 2
+  Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 508665266753
+  Ver: 1 | Pkt: Operator | Typ: 3
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 11
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 14
+  Ver: 1 | Pkt: Operator | Typ: 1
+    Ver: 1 | Pkt: Operator | Typ: 5
+      Ver: 2 | Pkt: Operator | Typ: 0
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 10
+        Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 4
+        Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 9
+      Ver: 5 | Pkt: Operator | Typ: 0
+        Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 2
+        Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 10
+        Ver: 3 | Pkt: Literal  | Typ: 4 | Val: 13
+    Ver: 2 | Pkt: Literal  | Typ: 4 | Val: 235
+  Ver: 3 | Pkt: Operator | Typ: 2
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 466695
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 281
+    Ver: 6 | Pkt: Literal  | Typ: 4 | Val: 622270
+    Ver: 4 | Pkt: Literal  | Typ: 4 | Val: 4
+    Ver: 5 | Pkt: Literal  | Typ: 4 | Val: 229

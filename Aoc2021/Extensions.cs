@@ -57,6 +57,15 @@
             return i;
         }
 
+        internal static long Product<T>(this IEnumerable<T> source, Func<T, long> selector)
+        {
+            long i = 1;
+            foreach (var x in source.Select(selector))
+                i *= x;
+
+            return i;
+        }
+
         public static IEnumerable<TResult> ZipWithDefault<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> selector)
         {
             bool firstMoveNext, secondMoveNext = false;
