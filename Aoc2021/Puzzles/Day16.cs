@@ -25,18 +25,18 @@ namespace Aoc2021.Puzzles
                 var bits = string.Concat(line.ToCharArray().Select(c => c.ToBinary()));
                 var bsr = new BitStreamReader(bits);
                 var message = bsr.CreateMessage();
-                //PrintOutput(line, message);
+                PrintOutput(line, message);
                 _part1Answer = message.VersionTotal;
                 _part2Answer = message.ValueTotal;
             }
             return _part1Answer;
         }
 
-        private void PrintOutput(string line, Message message)
+        private static void PrintOutput(string line, Message message)
         {
             Console.WriteLine("##################################################################");
             Console.WriteLine($"Input: {line}");
-            Console.WriteLine(message.Dump(0));
+            Console.WriteLine(message);
             Console.WriteLine($"VersionSum: {message.VersionTotal}");
             Console.WriteLine($"Value:      {message.ValueTotal}");
         }
@@ -48,12 +48,8 @@ namespace Aoc2021.Puzzles
         {
             private readonly string _bits;
             private int _ptr;
-           
-            public BitStreamReader(string bits)
-            {
-                _bits = bits;
-                _ptr = 0;
-            }
+
+            public BitStreamReader(string bits) => _bits = bits;
 
             private string ReadBits(int len)
             {
@@ -61,9 +57,9 @@ namespace Aoc2021.Puzzles
                 return _bits[(_ptr-len).._ptr];
             }
 
-            private long ReadLong(int len) => ReadBits(len).ToBigInt();
+            private long ReadLong(int len) => ReadBits(len).ToInt64();
 
-            private int ReadInt(int len) => ReadBits(len).ToInt();
+            private int ReadInt(int len) => ReadBits(len).ToInt32();
 
             public Message CreateMessage()
             {
@@ -81,7 +77,6 @@ namespace Aoc2021.Puzzles
                 {
                     return null; //if something fails, we're probably just at the end of the stream
                 }
-
             }
 
             private void PopulateOperatorPacket(ref Message msg)
@@ -131,7 +126,7 @@ namespace Aoc2021.Puzzles
                     header = ReadInt(1);         //check the leading bit to see if this is a terminal chunk
                     value += ReadBits(4);        //grab the chunk value + append it to the overall value
                 }
-                msg.LocalValue = value.ToBigInt();
+                msg.LocalValue = value.ToInt64();
             }
         }
 
@@ -158,7 +153,9 @@ namespace Aoc2021.Puzzles
                         _ => 0,
                     };
 
-            public string Dump (int level)
+            public override string ToString() => Dump(0);
+
+            private string Dump (int level)
             {
                 var val = Environment.NewLine +
                     string.Concat(Enumerable.Repeat("  ", level)) + //nesting
@@ -167,39 +164,23 @@ namespace Aoc2021.Puzzles
                     $"Typ: {Type}" +
                     $"{(IsLiteralPacket ? $" | Val: {LocalValue}" : "")}";
 
-                if (Messages == null) return val;
-
-                foreach (var msg in Messages) val += msg.Dump(level+1);
-
-                return val;
+                return Messages == null
+                    ? val
+                    : val + string.Concat(Messages.Select(x => x.Dump(level + 1)));
             }
         }
-        
+
         internal static class Extensions
         {
-            public static long ToBigInt(this string bits) => Convert.ToInt64(bits, 2);
-
-            public static int ToInt(this string bits) => Convert.ToInt32(bits, 2);
-
-            public static string ToBinary(this char hexadecimalCharacter) => hexadecimalCharacter switch
+            internal static long ToInt64(this string bits) => Convert.ToInt64(bits, 2);
+            internal static int ToInt32(this string bits) => Convert.ToInt32(bits, 2);
+            internal static string ToBinary(this char hex) => hex switch
             {
-                '0' => "0000",
-                '1' => "0001",
-                '2' => "0010",
-                '3' => "0011",
-                '4' => "0100",
-                '5' => "0101",
-                '6' => "0110",
-                '7' => "0111",
-                '8' => "1000",
-                '9' => "1001",
-                'A' => "1010",
-                'B' => "1011",
-                'C' => "1100",
-                'D' => "1101",
-                'E' => "1110",
-                'F' => "1111",
-                _ => throw new ArgumentOutOfRangeException(nameof(hexadecimalCharacter))
+                '0' => "0000",  '1' => "0001",  '2' => "0010",  '3' => "0011",
+                '4' => "0100",  '5' => "0101",  '6' => "0110",  '7' => "0111",
+                '8' => "1000",  '9' => "1001",  'A' => "1010",  'B' => "1011",
+                'C' => "1100",  'D' => "1101",  'E' => "1110",  'F' => "1111",
+                _ => throw new ArgumentOutOfRangeException(nameof(hex))
             };
         }
     }
