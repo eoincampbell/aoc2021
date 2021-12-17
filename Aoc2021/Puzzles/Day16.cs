@@ -17,7 +17,7 @@ namespace Aoc2021.Puzzles
 
         private long _part1Answer;
         private long _part2Answer;
-
+        private bool _printOutput = false;
         public object Process()
         {
             foreach (var line in PuzzleInput)
@@ -32,8 +32,9 @@ namespace Aoc2021.Puzzles
             return _part1Answer;
         }
 
-        private static void PrintOutput(string line, Message message)
+        private void PrintOutput(string line, Message message)
         {
+            if (!_printOutput) return;
             Console.WriteLine("##################################################################");
             Console.WriteLine($"Input: {line}");
             Console.WriteLine(message);

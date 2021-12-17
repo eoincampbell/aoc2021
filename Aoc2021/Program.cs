@@ -19,6 +19,7 @@ var days = new List<Puzzle>
     new Day14(),
     new Day15(),
     new Day16(),
+    new Day17(),
 };
 
 bool currentDayOnly = true;
