@@ -17,7 +17,7 @@ namespace Aoc2021.Puzzles
 
         private long _part1Answer;
         private long _part2Answer;
-        private bool _printOutput = false;
+        private readonly bool _printOutput = false;
         public object Process()
         {
             foreach (var line in PuzzleInput)
@@ -76,7 +76,7 @@ namespace Aoc2021.Puzzles
                 }
                 catch
                 {
-                    return null; //if something fails, we're probably just at the end of the stream
+                    return null!; //if something fails, we're probably just at the end of the stream
                 }
             }
 

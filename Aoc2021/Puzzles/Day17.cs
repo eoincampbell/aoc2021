@@ -31,7 +31,7 @@ namespace Aoc2021.Puzzles
             5..-5 cancel out
             so you can just consider the negative coordinate of the bottom of the box. 
             max height will be N*(N-1)/2 where N = Abs(Bottom Of Box)
-            //See /Notes/Day17.jpg
+            //See https://github.com/eoincampbell/aoc2021/blob/main/Aoc2021/Notes/Day17.jpg
         */
         public object Part1() => Math.Abs(_bottomRight.Y)* (Math.Abs(_bottomRight.Y)-1) / 2;
 
@@ -73,40 +73,35 @@ namespace Aoc2021.Puzzles
 
         public class Velocity
         {
-            public int InitVelX { get; }
-            public int InitVelY { get; }
-            public int VelX { get; private set; }
-            public int VelY { get; private set; }
-            public int Step { get; private set; }
+            public int VelX { get; }
+            public int VelY { get; }
+            private int _vX;
+            private int _vY;
             private Point _current;
 
             public Velocity(int vX, int vY)
             {
-                InitVelX = VelX = vX;
-                InitVelY = VelY = vY;
+                VelX = _vX = vX;
+                VelY = _vY = vY;
                 _current = new Point(0, 0);
-                Step = 0;
             }
 
             public Point PerformStep()
             {
-                _current = new Point(_current.X + VelX, _current.Y + VelY);
-                VelX = VelX > 0 ? VelX - 1 : 0;
-                VelY--;
-                Step++;
+                _current = new Point(_current.X + _vX, _current.Y + _vY);
+                _vX = _vX > 0 ? _vX - 1 : 0;
+                _vY--;
                 return _current;
             }
 
-            public override string ToString() => $"{InitVelX},{InitVelY}";
+            public override string ToString() => $"{VelX},{VelY}";
         }
 
         public record Box (Point TopLeft, Point BottomRight)
         {
             public bool IsInBox(Point p) =>
-                    TopLeft.X <= p.X &&
-                    p.X <= BottomRight.X &&
-                    TopLeft.Y >= p.Y &&
-                    p.Y >= BottomRight.Y;
+                    TopLeft.X <= p.X && p.X <= BottomRight.X &&
+                    TopLeft.Y >= p.Y && p.Y >= BottomRight.Y;
 
             public bool IsBelowBox(Point p) => p.Y < BottomRight.Y;
         }
