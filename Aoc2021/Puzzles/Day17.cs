@@ -1,5 +1,4 @@
-﻿using Aoc2021.Puzzles.Day16Extensions;
-using Aoc2021.Puzzles.Day17Extensions;
+﻿using Aoc2021.Puzzles.Day17Extensions;
 
 namespace Aoc2021.Puzzles
 {
