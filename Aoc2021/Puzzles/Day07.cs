@@ -3,25 +3,24 @@
     internal class Day07 : Puzzle
     {
         public override int Day => 7;
-        protected override object RunPart1() => Part1Better(); //344138
-        protected override object RunPart2() => Part2Better(); //94862124
+        public override string Name => "The Treachery of Whales";
+        protected override object RunPart1() => Part1(); //344138
+        protected override object RunPart2() => Part2(); //94862124
 
         public Day07()
            : base("Inputs/Day07.txt")
         //: base("Inputs/Day07Sample.txt")
         { }
 
-        private object Part1Better()
+        private object Part1()
         {
             int middle = Input[Input.Length / 2];
-
             return Input.Sum(x => Math.Abs(middle - x));
         }
 
-        private object Part2Better()
+        private object Part2()
         {
             var mean = Convert.ToInt32(Math.Floor(Input.Average()));
-
             var fc = new Dictionary<int, int>();
 
             foreach (int r in Enumerable.Range(mean - 1, 3))
@@ -35,22 +34,6 @@
 
             return fc.Min(x => x.Value);
         }
-
-        //private object Part1or2(bool simpleCost = true)
-        //{
-        //    var fc = new Dictionary<int, int>();
-
-        //    foreach (int r in Enumerable.Range(Input[0], Input[^1] - Input[0]))
-        //        foreach (int i in Input)
-        //        {
-        //            var cost = simpleCost ?
-        //                Math.Abs(r - i) :
-        //                Triangle(Math.Abs(r - i));
-        //            fc[r] = fc.ContainsKey(r) ? fc[r] + cost : cost;
-        //        }
-
-        //    return fc.Min(x => x.Value);
-        //}
 
         private static int Triangle(int n) => (n * (n + 1)) / 2;
 

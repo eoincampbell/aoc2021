@@ -3,6 +3,7 @@
     internal class Day14 : Puzzle
     {
         public override int Day => 14;
+        public override string Name => "Extended Polymerization";
         protected override object RunPart1() => Process(10); //3143
         protected override object RunPart2() => Process(40); //4110215602456
 
@@ -22,12 +23,12 @@
         private object Process(int steps)
         {
             var pairs = Enumerable
-                .Range(0, Polymer.Length - 1)                          // 10 char polymer has 9 pairs
-                .Select(idx => Polymer[idx..(idx + 2)])                // foreach generate a consecutive pair... Yay IndexRanges
-                .GroupBy(p => p)                                        // Group the pairs (incase their dupes)
+                .Range(0, Polymer.Length - 1)                           // 10 char polymer has 9 pairs
+                .Select(idx => Polymer[idx..(idx + 2)])                 // foreach generate a consecutive pair... Yay IndexRanges
+                .GroupBy(p => p)                                        // Group the pairs (in case they are dupes)
                 .ToDictionary(d => d.Key, d => d.LongCount());          // Add the Pairs to a tracking dict with their occurrence count
 
-            var el = Polymer                                           // Also add each char element to a tracking dicct
+            var el = Polymer                                            // Also add each char element to a tracking dicct
                 .GroupBy(p => p)                                        // for tracking the occurrence count
                 .ToDictionary(d => d.Key.ToString(), d => d.LongCount());
 

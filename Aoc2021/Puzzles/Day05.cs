@@ -3,15 +3,14 @@
     internal class Day05 : Puzzle
     {
         public override int Day => 5;
-        protected override object RunPart1() => Process(); //4826 (5)
-        protected override object RunPart2() => Process(skipDiagonals: false); //16793 (12)
+        public override string Name => "Hydrothermal Venture";
+        protected override object RunPart1() => Process();                      //4826 (5)
+        protected override object RunPart2() => Process(skipDiagonals: false);  //16793 (12)
 
         public Day05()
             : base("Inputs/Day05.txt")
             //: base("Inputs/Day05Sample.txt")
-        {
-            _coords = new Dictionary<(int, int), int>();
-        }
+            => _coords = new Dictionary<(int, int), int>();
 
         private Dictionary<(int, int), int> _coords;
 
@@ -27,8 +26,7 @@
                 var (ex, (ey, _)) = end.Split(",").Select(int.Parse).ToList();
 
                 //x's must be equal for a vert line, ys for a horizontal 
-                if (skipDiagonals && sx != ex && sy != ey)
-                    continue;
+                if (skipDiagonals && sx != ex && sy != ey) continue;
 
                 //account for coordinates given in ascending vs. descending
                 var xdiff = (sx < ex) ? 1 : ((sx > ex) ? -1 : 0);

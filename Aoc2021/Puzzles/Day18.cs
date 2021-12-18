@@ -5,6 +5,7 @@ namespace Aoc2021.Puzzles
     internal class Day18 : Puzzle
     {
         public override int Day => 18;
+        public override string Name => "Snailfish";
         protected override object RunPart1() => Part1();   //3935
         protected override object RunPart2() => Part2();   //4669
 
@@ -54,7 +55,7 @@ namespace Aoc2021.Puzzles
         private Node ReadNode(string input, ref int ptr)
         {
             var node = new Node();
-            if (input[ptr] == '[') ptr++;       //This is to handle the openin '[' of the series
+            if (input[ptr] == '[') ptr++;       //This is to handle the opening '[' of the node
 
             //next we expect either a nested left OR a left value. 
             if (input[ptr] == '[')
@@ -109,7 +110,7 @@ namespace Aoc2021.Puzzles
                 var stop = false;
                 while (!stop)                                   //while not done
                 {
-                    var exploded = ProcessExplodingNode(n);     //Try and Process the first (left most) explodable node you come across
+                    var exploded = ProcessExplodingNode(n);     //Try and process the first (left most) explodable node you come across
                     if (exploded) continue;                     //and loop around for more things to do
 
                     var split = false;
@@ -127,24 +128,24 @@ namespace Aoc2021.Puzzles
                 FlattenTreeToList(n, ref list, 0);              //noting the depth of each node as it's flattened.
 
                 var explodable = list                           //Find the first node that is "explodable"...
-                    .Find(dn => dn.Depth >= 4 &&                //i.e. it's Depth 4 or more
-                                !dn.Node!.IsLeaf);              //and it has a chld nodes (i.e. it isnt itself just a LeafNode)
+                    .Find(dn => dn.Depth >= 4 &&                //i.e. Depth 4 or more
+                                !dn.Node!.IsLeaf);              //and it has child nodes (i.e. it isn;t itself just a LeafNode)
 
                 if (explodable == null) return false;           //Otherwise return false
 
                 var exId= list.IndexOf(explodable);             //Find the index of that node
-                var ldnv = list[exId - 1].Node!.Value;          //That means it's singular values will be one index prior 
+                var ldnv = list[exId - 1].Node!.Value;          //That means it's singular node value representations will be one index prior 
                 var rdnv = list[exId + 1].Node!.Value;          //And  1 index later
 
-                for (int i = exId - 2; i >= 0; i--)             //for the left value, work backwards from 2 to the left (1 to the left of the LeafNode Value) 
+                for (int i = exId - 2; i >= 0; i--)             //for the left value, work backwards from 2 to the left (1 to the left of the Leaf Node Value) 
                     if (list[i].Node!.IsLeaf)                   //looking for another leaf nodes to combine with
                     {
                         list[i].Node!.Value += ldnv;
                         break;
                     }
 
-                for (int i = exId + 2; i < list.Count; i++)     //for the right node. work forwars from 2 to the right (1 to the right of the LeadNode Value)
-                    if (list[i].Node!.IsLeaf)                   //looking for another lead node to combine with
+                for (int i = exId + 2; i < list.Count; i++)     //for the right node. work forwards from 2 to the right (1 to the right of the Leaf Node Value)
+                    if (list[i].Node!.IsLeaf)                   //looking for another leaf node to combine with
                     {
                         list[i].Node!.Value += rdnv;
                         break;

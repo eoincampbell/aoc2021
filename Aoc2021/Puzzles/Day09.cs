@@ -3,6 +3,7 @@
     internal class Day09 : Puzzle
     {
         public override int Day => 9;
+        public override string Name => "Smoke Basin";
         protected override object RunPart1() => Part1(); //532
         protected override object RunPart2() => Part2(); //1110780
 
@@ -71,7 +72,7 @@
                 {
                     var (cx,cy) = d.First(x => !x.Value).Key;       //Grab an unprocessed cell
                     var linkedCells = Part2ProcessCell(cx, cy);     //Find all adjacent non-height-9 cells
-                    d[(cx, cy)] = true;                             //Now onsider this cell processed
+                    d[(cx, cy)] = true;                             //Now consider this cell processed
 
                     foreach (var (lcx, lcy) in linkedCells)         //foreach higher adjacent cell found
                     {

@@ -4,6 +4,7 @@ namespace Aoc2021.Puzzles
     internal class Day15 : Puzzle
     {
         public override int Day => 15;
+        public override string Name => "Chiton";
         protected override object RunPart1() => FindShortestPath();      //388   (Sample: 40)
         protected override object RunPart2() => FindShortestPath(5,5);   //2819  (Sample: 315)
 
@@ -56,7 +57,7 @@ namespace Aoc2021.Puzzles
         private Node[] AStar(Node source, Node target)
         {
             //See:  https://brilliant.org/wiki/a-star-search/ (incl. Python Pseudo Code)
-            //Uses Manhattan Distance for Est.
+            //Uses Manhattan Distance for Hueristic.
 
             var fn = new Dictionary<Node, int> { [source] = 0 };        //Tracker for the Node "Estimates"
             var gn = new Dictionary<Node, int> { [source] = 0 };        //Tracker for the Node "Scores"
@@ -67,7 +68,7 @@ namespace Aoc2021.Puzzles
             while (open.TryDequeue(out var cur, out long _))            //keep popping nodes... this queue will grow as 
             {                                                           //neighbours of the start point are added.
                 if (cur.Equals(target))
-                    return ReconstructPath(processed, cur);             //exit condition, return recreate path from our closed node list
+                    return ReconstructPath(processed, cur);             //exit condition, return recreated path from our closed node list
 
                 foreach (var n in cur.Neighbours())                     //otherwise, iterate over the neighbours (which might be out of bounds)
                 {

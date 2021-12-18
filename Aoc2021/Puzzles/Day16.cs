@@ -5,13 +5,14 @@ namespace Aoc2021.Puzzles
     internal class Day16 : Puzzle
     {
         public override int Day => 16;
+        public override string Name => "Packet Decoder";
         protected override object RunPart1() => Process();      //984
         protected override object RunPart2() => _part2Answer;   //1015320896946
 
         public Day16()
             : base("Inputs/Day16.txt")
-        //: base("Inputs/Day16Sample.txt")
-        //: base("Inputs/Day16Ian.txt")
+            //: base("Inputs/Day16Sample.txt")
+            //: base("Inputs/Day16Ian.txt")
         {
         }
 
@@ -66,7 +67,7 @@ namespace Aoc2021.Puzzles
             {
                 try
                 {
-                    long ver = ReadLong(3), typ = ReadLong(3);              //3 bits for version, 3 bits for type
+                    long ver = ReadLong(3), typ = ReadLong(3);      //3 bits for version, 3 bits for type
                     var msg = new Message(ver, typ);
                     if (typ == 4)
                         PopulateLiteralPacket(ref msg);

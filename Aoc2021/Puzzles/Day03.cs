@@ -3,6 +3,7 @@
     internal class Day03 : Puzzle
     {
         public override int Day => 3;
+        public override string Name => "Binary Diagnostic";
         protected override object RunPart1() => Part1();  //841526
         protected override object RunPart2() => Part2();  //4790390
 

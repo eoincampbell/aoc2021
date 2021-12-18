@@ -5,6 +5,7 @@ namespace Aoc2021.Puzzles
     internal class Day10 : Puzzle
     {
         public override int Day => 10;
+        public override string Name => "Syntax Scoring";
         protected override object RunPart1() => Part1(); //240123
         protected override object RunPart2() => Part2(); //3260812321
 

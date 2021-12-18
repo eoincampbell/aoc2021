@@ -23,7 +23,7 @@ var days = new List<Puzzle>
     new Day18(),
 };
 
-bool currentDayOnly = true;
+bool currentDayOnly = false;
 
 Puzzle.Header.Print();
 foreach (var day in currentDayOnly ? days.OrderByDescending(x => x.Day).Take(1): days )

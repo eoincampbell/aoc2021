@@ -3,12 +3,11 @@
     internal class Day04 : Puzzle
     {
         public override int Day => 4;
-
+        public override string Name => "Giant Squid";
         //a `b => false` predicate will always result in a zero, so this will return as soon as the first board BINGOs
-        protected override object RunPart1() => PlayBingo(_ => false);  //89001
-
         //a `b => !b.Bingo` predicate will only return a zero count after the last card BINGOs 
-        protected override object RunPart2() => PlayBingo(b => !b.Bingo);  //7296
+        protected override object RunPart2() => PlayBingo(b => !b.Bingo);   //7296
+        protected override object RunPart1() => PlayBingo(_ => false);      //89001
 
         public Day04()
             : base("Inputs/Day04.txt") {
@@ -69,10 +68,8 @@
 
             private readonly List<BoardNumber> _values;
 
-            public Board(List<int> values)
-            {
+            public Board(List<int> values) =>
                 _values = values.ConvertAll(x => new BoardNumber(x, false));
-            }
 
             public void MarkCard(int number)
             {

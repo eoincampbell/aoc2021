@@ -5,6 +5,7 @@ namespace Aoc2021.Puzzles
     internal class Day17 : Puzzle
     {
         public override int Day => 17;
+        public override string Name => "Trick Shot";
         protected override object RunPart1() => Part1();   //17766
         protected override object RunPart2() => Part2();   //1733
 
@@ -98,9 +99,8 @@ namespace Aoc2021.Puzzles
 
         public record Box (Point TopLeft, Point BottomRight)
         {
-            public bool IsInBox(Point p) =>
-                    TopLeft.X <= p.X && p.X <= BottomRight.X &&
-                    TopLeft.Y >= p.Y && p.Y >= BottomRight.Y;
+            public bool IsInBox(Point p) => TopLeft.X <= p.X && p.X <= BottomRight.X &&
+                                            TopLeft.Y >= p.Y && p.Y >= BottomRight.Y;
 
             public bool IsBelowBox(Point p) => p.Y < BottomRight.Y;
         }

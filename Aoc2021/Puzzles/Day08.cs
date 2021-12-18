@@ -3,6 +3,7 @@
     internal class Day08 : Puzzle
     {
         public override int Day => 8;
+        public override string Name => "Seven Segment Search";
         protected override object RunPart1() => Part1(); //321
         protected override object RunPart2() => Part2(); //1028926
 
