@@ -23,8 +23,7 @@ namespace Aoc2021.Puzzles
         {
             _algo = Array.Empty<int>();
             _map = new();
-            _box = default!;
-            _bigBox = default!;
+            _box = _bigBox = default!;
         }
 
         private void LoadInput()
