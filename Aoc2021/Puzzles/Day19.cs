@@ -5,7 +5,7 @@ namespace Aoc2021.Puzzles
     internal class Day19 : Puzzle
     {
         public override int Day => 19;
-        public override string Name => "";
+        public override string Name => "Beacon Scanner";
         protected override object RunPart1() => "***Incomplete";//Part1();   //
         protected override object RunPart2() => "***Incomplete";//Part2();   //
 

@@ -5,16 +5,13 @@ namespace Aoc2021.Puzzles
     internal class Day20 : Puzzle
     {
         public override int Day => 20;
-        public override string Name => "";
-        protected override object RunPart1() => RunAlgo(2);     //
-        protected override object RunPart2() => RunAlgo(50);    //
+        public override string Name => "Trench Map";
+        protected override object RunPart1() => RunAlgo(2);     //5065
+        protected override object RunPart2() => RunAlgo(50);    //14790
 
-        private Dictionary<Coordinate2D, int> _map;
+        private Dictionary<Point, int> _map;
         private int[] _algo;
-        private int _minx;
-        private int _miny;
-        private int _maxx;
-        private int _maxy;
+        private Box _box;
 
         public static bool EnablePrinting => false;
 
@@ -24,28 +21,19 @@ namespace Aoc2021.Puzzles
         {
             _algo = Array.Empty<int>();
             _map = new();
+            _box = default!;
         }
 
         private void LoadInput()
         {
-            var raw = PuzzleInput.ToArray();
-            _algo = raw[0].ToCharArray().Select(s => s == '#' ? 1 : 0).ToArray();
-
-            var inputs = raw[2..].ToList();
-
-            _map = new Dictionary<Coordinate2D, int>();
-
-            _miny = 0;
-            _minx = 0;
-            _maxy = inputs.Count;
-            _maxx = inputs[0].Length;
-
-            for (int y = _miny; y < _maxy; y++)
+            var t = PuzzleInput.Skip(2).ToList();
+            _algo = PuzzleInput.First().Select(s => s == '#' ? 1 : 0).ToArray();
+            _map = new();
+            _box = new(0, 0, t[0].Length, t.Count);
+            for (int y = _box.MinY; y < _box.MaxY; y++)
             {
-                for (int x = _minx; x < _maxx; x++)
-                {
-                    _map.Add(new Coordinate2D(x, y), inputs[y][x] == '#' ? 1 : 0);
-                }
+                for (int x = _box.MinX; x < _box.MaxX; x++)
+                    _map.Add(new(x, y), t[y][x] == '#' ? 1 : 0);
             }
         }
 
@@ -54,40 +42,38 @@ namespace Aoc2021.Puzzles
             LoadInput();
             for (int i = 0; i < steps; i++)
             {
-                _map.Dump(_miny, _minx, _maxy, _maxx);
-                //extend the infinte map in all directions by an index.
-                _miny--;
-                _minx--;
-                _maxy++;
-                _maxx++;
+                _box = _box.Expand();          //Expand the box by one index in each direction
+                                               //since that will be effected by the current edge of the box
+                int def = i % 2 == 0 ? 0 : 1;  //THIS FUCKING GOTCHA...
+                /*             
+                So outside the known area is definitely only dark on step zero.
+                It might "flicker" based on the input algo for a
+                series of black cells if index 0 ("000000000")
+                resolves to a '#' 
 
-                int def = i % 2 == 0 ? 0 : 1;
-
-                var tmpMap = new Dictionary<Coordinate2D, int>();
-
-                for (int y = _miny; y < _maxy; y++)
+                so a cell that's way out in the void, that's dark, and 
+                surround by dark, will flip to bright (if algo[0] = #)
+                then all the void is bright, and on the next iteration 
+                a cells thats way out in the void, that's bright, and surrounded 
+                by brights, will flip to dark (if algo[512] = .)
+                */
+                var tmpMap = new Dictionary<Point, int>();
+                for (int y = _box.MinY; y < _box.MaxY; y++)
                 {
-                    for (int x = _minx; x < _maxx; x++)
+                    for (int x = _box.MinX; x < _box.MaxX; x++)
                     {
-                        var cc = new Coordinate2D(x, y);
-                        var nn = cc.Neighbors();
-                        var ss = "";
+                        var p = new Point(x, y);
+                        var ss = string.Empty;
+                        foreach (var n in p.Neighbors())
+                            ss += _map.GetValueOrDefault(n, def);   //Get values from known area, or use flickering default
 
-                        foreach(var n in nn)
-                        {
-                            
-                            ss += _map.GetValueOrDefault(n, def);
-                        }
-
-                        var algoIdx = Convert.ToInt32(ss, 2);
-                        var value = _algo[algoIdx];
-                        tmpMap[cc] = value;
+                        var algoIdx = Convert.ToInt32(ss, 2);       //Get new value for that cell from algo
+                        tmpMap[p] = _algo[algoIdx];
                     }
                 }
-
                 _map = tmpMap;
+                _map.Dump(_box);
             }
-            _map.Dump(_miny, _minx, _maxy, _maxx);
             return _map.Values.Sum();
         }
     }
@@ -96,142 +82,39 @@ namespace Aoc2021.Puzzles
     {
         internal static class Extensions
         {
-            public static List<Coordinate2D> Neighbors(this Coordinate2D val)
+            public static List<Point> Neighbors(this Point val) => new()
             {
-                return new List<Coordinate2D>()
-                {
-                    new Coordinate2D(val.x - 1, val.y - 1), //NW
-                    new Coordinate2D(val.x, val.y - 1),     //N
-                    new Coordinate2D(val.x + 1, val.y - 1), //NE
+                new(val.X - 1 , val.Y - 1), //NW
+                new(val.X     , val.Y - 1), //N
+                new(val.X + 1 , val.Y - 1), //NE
+                new(val.X - 1 , val.Y),     //W
+                new(val.X     , val.Y),     //SELF/CENTER
+                new(val.X + 1 , val.Y),     //E
+                new(val.X - 1 , val.Y + 1), //SW
+                new(val.X     , val.Y + 1), //S
+                new(val.X + 1 , val.Y + 1), //SE
+            };
 
-                    new Coordinate2D(val.x - 1, val.y),     //W
-                    new Coordinate2D(val.x, val.y),
-                    new Coordinate2D(val.x + 1, val.y),     //E
-
-                    new Coordinate2D(val.x - 1, val.y + 1), //SW
-                    new Coordinate2D(val.x, val.y + 1),     //S
-                    new Coordinate2D(val.x + 1, val.y + 1), //SE
-                };
-            }
-
-            internal static void Dump(this Dictionary<Coordinate2D, int> map, int miny, int minx, int maxy, int maxx)
+            internal static void Dump(this Dictionary<Point, int> map, Box box)
             {
                 if (!Day20.EnablePrinting) return;
-
-                Console.WriteLine("-------------------------------------------");
-                for (int y = miny; y < maxy; y++)
+                for (int y = box.MinY; y < box.MaxY; y++)
                 {
-                    for (int x = minx; x < maxx; x++)
+                    for (int x = box.MinX; x < box.MaxX; x++)
                     {
-                        var c = new Coordinate2D(x, y);
-                        var val = map.GetValueOrDefault(c, 0);
-                        Console.Write(val == 1 ? '#' : '.');
+                        var c = (map.GetValueOrDefault(new(x, y), 0) == 1) ? '#' : '.';
+                        Console.Write(c);
                     }
                     Console.WriteLine();
                 }
             }
         }
 
-        public class Coordinate2D
+        public record Point(int X, int Y);
+
+        public record Box(int MinX, int MinY, int MaxX, int MaxY)
         {
-            public static readonly Coordinate2D origin = new(0, 0);
-            public static readonly Coordinate2D unit_x = new(1, 0);
-            public static readonly Coordinate2D unit_y = new(0, 1);
-            public readonly int x;
-            public readonly int y;
-
-            public Coordinate2D(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-
-            public Coordinate2D((int x, int y) coord)
-            {
-                this.x = coord.x;
-                this.y = coord.y;
-            }
-
-            public Coordinate2D RotateCW(int degrees, Coordinate2D center)
-            {
-                Coordinate2D offset = center - this;
-                return center + offset.RotateCW(degrees);
-            }
-            public Coordinate2D RotateCW(int degrees)
-            {
-                return ((degrees / 90) % 4) switch
-                {
-                    0 => this,
-                    1 => RotateCW(),
-                    2 => -this,
-                    3 => RotateCCW(),
-                    _ => this,
-                };
-            }
-
-            private Coordinate2D RotateCW()
-            {
-                return new Coordinate2D(y, -x);
-            }
-
-            public Coordinate2D RotateCCW(int degrees, Coordinate2D center)
-            {
-                Coordinate2D offset = center - this;
-                return center + offset.RotateCCW(degrees);
-            }
-            public Coordinate2D RotateCCW(int degrees)
-            {
-                return ((degrees / 90) % 4) switch
-                {
-                    0 => this,
-                    1 => RotateCCW(),
-                    2 => -this,
-                    3 => RotateCW(),
-                    _ => this,
-                };
-            }
-
-            private Coordinate2D RotateCCW()
-            {
-                return new Coordinate2D(-y, x);
-            }
-
-            public static Coordinate2D operator +(Coordinate2D a) => a;
-            public static Coordinate2D operator +(Coordinate2D a, Coordinate2D b) => new(a.x + b.x, a.y + b.y);
-            public static Coordinate2D operator -(Coordinate2D a) => new(-a.x, -a.y);
-            public static Coordinate2D operator -(Coordinate2D a, Coordinate2D b) => a + (-b);
-            public static Coordinate2D operator *(int scale, Coordinate2D a) => new(scale * a.x, scale * a.y);
-            public static bool operator ==(Coordinate2D a, Coordinate2D b) => (a.x == b.x && a.y == b.y);
-            public static bool operator !=(Coordinate2D a, Coordinate2D b) => (a.x != b.x || a.y != b.y);
-
-            public static implicit operator Coordinate2D((int x, int y) a) => new(a.x, a.y);
-
-            public static implicit operator (int x, int y)(Coordinate2D a) => (a.x, a.y);
-
-            public int ManDistance(Coordinate2D other)
-            {
-                int x = Math.Abs(this.x - other.x);
-                int y = Math.Abs(this.y - other.y);
-                return x + y;
-            }
-            public override bool Equals(object obj)
-            {
-                if (obj == null) return false;
-                if (obj.GetType() != typeof(Coordinate2D)) return false;
-                return this == (Coordinate2D)obj;
-            }
-
-            public override int GetHashCode()
-            {
-                return (100 * x + y).GetHashCode();
-            }
-
-            public override string ToString()
-            {
-                return string.Concat("(", x, ", ", y, ")");
-            }
-
+            public Box Expand() => new (MinX - 1, MinY - 1, MaxX + 1, MaxY + 1);
         }
-
     }
 }
