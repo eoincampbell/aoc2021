@@ -21,9 +21,11 @@ var days = new List<Puzzle>
     new Day16(),
     new Day17(),
     new Day18(),
+    new Day19(),
+    new Day20(),
 };
 
-bool currentDayOnly = false;
+bool currentDayOnly = true;
 
 Puzzle.Header.Print();
 foreach (var day in currentDayOnly ? days.OrderByDescending(x => x.Day).Take(1): days )
