@@ -1,4 +1,5 @@
 ﻿using Aoc2021.Puzzles.Day20Extensions;
+using System.Text;
 
 namespace Aoc2021.Puzzles
 {
@@ -12,6 +13,7 @@ namespace Aoc2021.Puzzles
         private Dictionary<Point, int> _map;
         private int[] _algo;
         private Box _box;
+        private Box _bigBox;
 
         public static bool EnablePrinting => false;
 
@@ -22,6 +24,7 @@ namespace Aoc2021.Puzzles
             _algo = Array.Empty<int>();
             _map = new();
             _box = default!;
+            _bigBox = default!;
         }
 
         private void LoadInput()
@@ -30,6 +33,7 @@ namespace Aoc2021.Puzzles
             _algo = PuzzleInput.First().Select(s => s == '#' ? 1 : 0).ToArray();
             _map = new();
             _box = new(0, 0, t[0].Length, t.Count);
+            _bigBox = new(-50, -50, t[0].Length+50, t.Count+50);
             for (int y = _box.MinY; y < _box.MaxY; y++)
             {
                 for (int x = _box.MinX; x < _box.MaxX; x++)
@@ -42,6 +46,7 @@ namespace Aoc2021.Puzzles
             LoadInput();
             for (int i = 0; i < steps; i++)
             {
+                _map.Dump(_bigBox);
                 _box = _box.Expand();          //Expand the box by one index in each direction
                                                //since that will be effected by the current edge of the box
                 int def = i % 2 == 0 ? 0 : 1;  //THIS FUCKING GOTCHA...
@@ -72,8 +77,9 @@ namespace Aoc2021.Puzzles
                     }
                 }
                 _map = tmpMap;
-                _map.Dump(_box);
             }
+
+            _map.Dump(_bigBox);
             return _map.Values.Sum();
         }
     }
@@ -98,15 +104,18 @@ namespace Aoc2021.Puzzles
             internal static void Dump(this Dictionary<Point, int> map, Box box)
             {
                 if (!Day20.EnablePrinting) return;
+                var sb = new StringBuilder();
                 for (int y = box.MinY; y < box.MaxY; y++)
                 {
                     for (int x = box.MinX; x < box.MaxX; x++)
                     {
-                        var c = (map.GetValueOrDefault(new(x, y), 0) == 1) ? '#' : '.';
-                        Console.Write(c);
+                        sb.Append(map.GetValueOrDefault(new(x, y), 0) == 1 ? '█' : ' ');
                     }
-                    Console.WriteLine();
+                    sb.AppendLine();
                 }
+                Thread.Sleep(200);
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine(sb.ToString());
             }
         }
 
